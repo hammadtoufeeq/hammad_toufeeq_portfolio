@@ -1,15 +1,13 @@
 import { useState, type FormEvent } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import emailjs from '@emailjs/browser'
 import { profile } from '../data'
 import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from './Icons'
 import { Reveal, Section } from './Section'
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined
+// FormSubmit (https://formsubmit.co) forwards submissions to the inbox; no account or keys needed.
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${profile.email}`
 
-type Status = 'idle' | 'sending' | 'sent' | 'error'
+type Status = 'idle' | 'sending' | 'sent' | 'activate' | 'error'
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>('idle')
@@ -19,20 +17,27 @@ export default function Contact() {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
-    const name = String(data.get('name') ?? '')
-    const email = String(data.get('email') ?? '')
-    const message = String(data.get('message') ?? '')
-
-    // Without EmailJS keys, open the visitor's email app with the message filled in.
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      const body = `${message}\n\n${name}\n${email}`
-      window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(`Hello from ${name}`)}&body=${encodeURIComponent(body)}`
-      return
-    }
+    if (data.get('_honey')) return
 
     setStatus('sending')
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, { name, email, message }, { publicKey: PUBLIC_KEY })
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          message: data.get('message'),
+          _subject: `Portfolio message from ${data.get('name')}`,
+          _replyto: data.get('email'),
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      })
+      const json = await res.json().catch(() => ({}))
+      // The very first submission only triggers FormSubmit's activation email to the owner.
+      if (/activat/i.test(String(json.message ?? ''))) return setStatus('activate')
+      if (!res.ok || String(json.success) !== 'true') throw new Error(json.message ?? 'Send failed')
       setStatus('sent')
       form.reset()
     } catch {
@@ -110,6 +115,7 @@ export default function Contact() {
             </div>
 
             <form onSubmit={onSubmit} className="glass rounded-3xl p-6 sm:p-8">
+              <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="mb-2 block text-sm font-medium text-white/70">Your name</label>
@@ -135,15 +141,19 @@ export default function Contact() {
               </button>
 
               <AnimatePresence>
-                {(status === 'sent' || status === 'error') && (
+                {(status === 'sent' || status === 'activate' || status === 'error') && (
                   <motion.p
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     role="status"
-                    className={`mt-4 text-center text-sm ${status === 'sent' ? 'text-emerald-300' : 'text-rose-300'}`}
+                    className={`mt-4 text-center text-sm ${status === 'error' ? 'text-rose-300' : status === 'activate' ? 'text-amber-300' : 'text-emerald-300'}`}
                   >
-                    {status === 'sent' ? "Thanks! Your message is on its way. I'll get back to you soon." : `Something went wrong. Please email me at ${profile.email}.`}
+                    {status === 'sent'
+                      ? "Thanks! Your message is on its way. I'll get back to you soon."
+                      : status === 'activate'
+                        ? 'The form needs a one-time activation. Check the inbox for the FormSubmit email, then send again.'
+                        : `Something went wrong. Please email me at ${profile.email}.`}
                   </motion.p>
                 )}
               </AnimatePresence>

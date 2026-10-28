@@ -31,15 +31,8 @@ npx playwright install chromium   # first time only
 node resume/build-resume.cjs
 ```
 
-## Contact form (optional: EmailJS)
+## Contact form
 
-Without setup, the form opens the visitor's email app with their message filled in.
-To have messages sent straight to your inbox:
+The form sends messages straight to hammadtoufeeq02@gmail.com through [FormSubmit](https://formsubmit.co), with no backend and no API keys.
 
-1. Create a free account at https://www.emailjs.com and connect your Gmail (Email Services).
-2. Create an Email Template that uses `{{name}}`, `{{email}}` and `{{message}}`.
-3. In Vercel → Project → Settings → Environment Variables, add:
-   - `VITE_EMAILJS_SERVICE_ID`
-   - `VITE_EMAILJS_TEMPLATE_ID`
-   - `VITE_EMAILJS_PUBLIC_KEY`
-4. Redeploy.
+**One-time activation:** after the site is live, submit the form once yourself. FormSubmit emails you an activation link; click it, and every message after that lands in your inbox. Check spam if it does not show up.
