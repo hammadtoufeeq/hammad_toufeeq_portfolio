@@ -53,7 +53,7 @@ export const skillGroups = [
   {
     title: 'Tools & Delivery',
     color: 'from-amber-400 to-orange-500',
-    items: ['Git & GitHub', 'Vercel', 'Vite', 'Postman', 'VS Code', 'Claude Code', 'Generative AI'],
+    items: ['Git & GitHub', 'Vercel', 'Vite', 'Postman', 'VS Code', 'Claude Code', 'Generative AI', 'SAP ERP (MM, FI)'],
   },
 ]
 
@@ -86,11 +86,12 @@ export const experience = [
     location: 'Lahore, Pakistan',
     current: false,
     points: [
-      "Worked with the IS team on the day-to-day running of the company's business information systems.",
-      'Learned how enterprise teams manage users, data and support requests in a large corporate environment.',
-      'Built a practical understanding of corporate IT processes, documentation and teamwork.',
+      'Worked hands-on in SAP ERP across the Materials Management (MM) and Finance (FI) modules, using standard SAP transaction codes (T-codes).',
+      'Followed the procure-to-pay flow in SAP MM: purchase requisitions, purchase orders, goods receipt and invoice verification.',
+      'Explored SAP FI postings and reports, and saw how MM transactions flow into finance and accounting.',
+      "Supported the IS team in the day-to-day running of the company's business information systems.",
     ],
-    tags: ['Information Systems', 'Enterprise IT', 'Teamwork'],
+    tags: ['SAP ERP', 'SAP MM', 'SAP FI', 'T-codes', 'Information Systems'],
   },
 ]
 
