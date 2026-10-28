@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { profile } from '../data'
+import CodeCard from './CodeCard'
 import Magnetic from './Magnetic'
 import { ArrowIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, PinIcon } from './Icons'
 
 const floatingChips = [
-  { label: 'React', className: '-left-16 top-[10%]', color: 'from-cyan-400 to-blue-500', d: 0 },
-  { label: 'Node.js', className: '-right-14 top-[30%]', color: 'from-lime-400 to-emerald-500', d: 0.6 },
-  { label: 'MongoDB', className: '-left-20 top-[58%]', color: 'from-emerald-400 to-teal-500', d: 1.2 },
-  { label: 'TypeScript', className: '-right-16 -bottom-5', color: 'from-blue-400 to-indigo-500', d: 1.8 },
+  { label: 'React', className: '-left-12 -top-6', color: 'from-cyan-400 to-blue-500', d: 0 },
+  { label: 'Node.js', className: '-right-10 top-[38%]', color: 'from-lime-400 to-emerald-500', d: 0.6 },
+  { label: 'TypeScript', className: '-left-14 -bottom-6', color: 'from-blue-400 to-indigo-500', d: 1.2 },
 ]
 
 const roleColors = ['text-fuchsia-300', 'text-cyan-300', 'text-amber-300', 'text-pink-300']
@@ -147,31 +147,10 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.85, rotate: -6 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ delay: 0.4, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-[22rem] sm:max-w-sm lg:max-w-md"
+          className="relative mx-auto w-full max-w-lg"
         >
-          <div className="relative aspect-square">
-            <div className="absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-fuchsia-600/50 via-violet-600/30 to-cyan-500/40 blur-3xl" />
-            <div className="absolute -inset-[3px] overflow-hidden rounded-[2.6rem]">
-              <div className="animate-spin-slow absolute left-1/2 top-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,#a855f7,#ec4899,#f59e0b,#06b6d4,#a855f7)]" />
-            </div>
-            <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-panel">
-              <img
-                src="/hammad.webp"
-                alt="Portrait of Hammad Toufeeq"
-                width={720}
-                height={720}
-                className="h-full w-full object-cover"
-                fetchPriority="high"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/80 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/15 bg-black/40 px-4 py-3 backdrop-blur-md">
-                <div>
-                  <p className="font-display text-sm font-semibold text-white">{profile.title}</p>
-                  <p className="text-xs text-white/60">Intern @ Axcel · BSCS, UCP</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-fuchsia-600/40 via-violet-600/25 to-cyan-500/30 blur-3xl" />
+          <CodeCard />
 
           {floatingChips.map((c) => (
             <motion.div
