@@ -34,5 +34,9 @@ node resume/build-resume.cjs
 ## Contact form
 
 The form sends messages straight to hammadtoufeeq02@gmail.com through [Web3Forms](https://web3forms.com), with no backend.
-The access key in `src/components/Contact.tsx` is public by design. Manage the form (and see past submissions) in the Web3Forms dashboard.
+It needs your Web3Forms access key in the `VITE_WEB3FORMS_KEY` environment variable:
+
+- **Locally:** copy `.env.example` to `.env` and paste the key. `.env` is git-ignored, so it is never committed.
+- **On Vercel:** Project → Settings → Environment Variables → add `VITE_WEB3FORMS_KEY`, then redeploy.
+
 If a request takes longer than 15 seconds, the form stops waiting and shows an error with the email address instead.

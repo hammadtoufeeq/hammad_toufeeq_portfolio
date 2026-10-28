@@ -4,9 +4,9 @@ import { profile } from '../data'
 import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from './Icons'
 import { Reveal, Section } from './Section'
 
-// Web3Forms (https://web3forms.com) emails submissions to the inbox. The access key is public by design.
+// Web3Forms (https://web3forms.com) emails submissions to the inbox. Set VITE_WEB3FORMS_KEY in .env / Vercel.
 const FORM_ENDPOINT = 'https://api.web3forms.com/submit'
-const WEB3FORMS_KEY = '2f488476-7ea2-46c8-9a77-8e6e4e0fd03c'
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined
 const TIMEOUT_MS = 15000
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
@@ -20,6 +20,10 @@ export default function Contact() {
     const form = e.currentTarget
     const data = new FormData(form)
     if (data.get('botcheck')) return
+    if (!WEB3FORMS_KEY) {
+      console.error('VITE_WEB3FORMS_KEY is not set')
+      return setStatus('error')
+    }
 
     setStatus('sending')
     const controller = new AbortController()
