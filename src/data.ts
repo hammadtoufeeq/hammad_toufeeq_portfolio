@@ -178,13 +178,56 @@ export const skylure = {
   label: 'Client Project · Freelance',
   tagline: 'Private aircraft acquisition & sales advisory.',
   description:
-    'A premium website and lead-management system for a private aviation advisory that helps corporations and high-net-worth individuals buy and sell private aircraft. Designed and built solo, from the public site to the admin CRM.',
+    'A premium website and lead-management system for a private aviation advisory that helps corporations and high-net-worth individuals buy and sell private aircraft. I designed and built it solo, from the public site to the admin CRM, and took it live for the client.',
   live: 'https://skylurejet.com',
-  features: [
-    { icon: '✈️', text: 'Buy / Sell tabbed inquiry form capturing aircraft category, budget, new or pre-owned, passenger capacity and mission' },
-    { icon: '📊', text: 'Admin CRM to review every inquiry, track its status and send price quotes to clients' },
-    { icon: '🛩️', text: 'Dedicated Aircraft Acquisition and Aircraft Sales pages with a luxury, conversion-focused design' },
-    { icon: '💬', text: 'One-tap WhatsApp contact and fully responsive layout for clients on the move' },
+  highlights: [
+    {
+      icon: '✈️',
+      title: 'Buy an Aircraft',
+      text: 'A detailed acquisition brief: aircraft category, budget range, new or pre-owned, passenger capacity, intended mission and specific requirements.',
+    },
+    {
+      icon: '🏷️',
+      title: 'Sell an Aircraft',
+      text: 'A separate tab and flow for owners who want to sell, so every lead arrives already sorted as a buyer or a seller.',
+    },
+    {
+      icon: '📊',
+      title: 'Admin CRM',
+      text: 'Every inquiry lands in one dashboard where the client reviews the details and tracks each lead from new to closed.',
+    },
+    {
+      icon: '💰',
+      title: 'Quotes & pricing',
+      text: 'The admin prepares and sends price quotes straight from the CRM, turning a web inquiry into a sales conversation.',
+    },
+    {
+      icon: '🔐',
+      title: 'Secure admin access',
+      text: 'The CRM sits behind an admin login, so only the client can see and manage inquiries and quotes.',
+    },
+    {
+      icon: '💎',
+      title: 'Luxury brand experience',
+      text: 'A black-and-gold, editorial design built to win the trust of high-value clients, with one-tap WhatsApp contact on every page.',
+    },
+  ],
+  flow: [
+    { step: 'Visitor picks Buy or Sell', who: 'Client' },
+    { step: 'Fills the aircraft brief', who: 'Client' },
+    { step: 'Inquiry saved to the database', who: 'Server' },
+    { step: 'Lead appears in the CRM', who: 'Admin' },
+    { step: 'Admin reviews & prices it', who: 'Admin' },
+    { step: 'Quote sent to the client', who: 'Admin' },
+  ],
+  pages: ['Home', 'Aircraft Acquisition', 'Aircraft Sales', 'About', 'Contact', 'CRM (admin)'],
+  scope: [
+    'UI / UX design and branding',
+    'Responsive frontend for every page',
+    'Buy & Sell forms with required-field validation',
+    'Backend API and database for inquiries',
+    'Admin authentication and CRM dashboard',
+    'Quote management and launch on the live domain',
   ],
   tags: ['React', 'Full-stack', 'Admin CRM', 'Lead management', 'Responsive UI'],
 }

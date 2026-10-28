@@ -122,25 +122,21 @@ export default function Projects() {
 
       {/* Skylure Jet (client) */}
       <Reveal className="mt-8">
-        <article className="glass relative overflow-hidden rounded-[2rem] p-6 sm:p-8 md:p-12">
-          <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-amber-400/25 to-yellow-700/10 blur-3xl" />
+        <article className="glass relative overflow-hidden rounded-[2rem] border-[#c9a96e]/30 p-6 sm:p-8 md:p-12">
+          <div className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-gradient-to-br from-amber-400/25 to-yellow-700/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 -right-24 h-80 w-80 rounded-full bg-gradient-to-br from-yellow-600/15 to-stone-500/10 blur-3xl" />
+
           <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-2 [&>*]:min-w-0">
             <div>
               <div className="mb-5 flex flex-wrap items-center gap-2">
                 <span className="rounded-full bg-gradient-to-r from-[#e3c891] to-[#a8844a] px-3 py-1 text-xs font-bold uppercase tracking-wider text-black">{skylure.label}</span>
-                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">● Live</span>
+                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">● Live in production</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">Built solo</span>
               </div>
               <h3 className="font-display text-4xl font-bold text-white md:text-5xl">{skylure.name}</h3>
               <p className="mt-3 text-xl font-medium text-[#e3c891]">{skylure.tagline}</p>
               <p className="mt-5 leading-relaxed text-white/65">{skylure.description}</p>
-              <ul className="mt-6 space-y-3">
-                {skylure.features.map((f) => (
-                  <li key={f.text} className="flex items-start gap-3 text-white/75">
-                    <span className="text-lg">{f.icon}</span>
-                    <span className="leading-relaxed">{f.text}</span>
-                  </li>
-                ))}
-              </ul>
+
               <div className="mt-6 flex flex-wrap gap-2">
                 {skylure.tags.map((t) => (
                   <span key={t} className="rounded-full bg-white/5 px-3 py-1 font-mono text-xs text-white/60 ring-1 ring-white/10">
@@ -148,6 +144,7 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+
               <a
                 href={skylure.live}
                 target="_blank"
@@ -159,6 +156,70 @@ export default function Projects() {
             </div>
 
             <SkylureDemo />
+          </div>
+
+          <div className="relative mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {skylure.highlights.map((h, i) => (
+              <motion.div
+                key={h.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ delay: i * 0.07, duration: 0.5 }}
+                whileHover={{ y: -6 }}
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors hover:border-[#c9a96e]/50 hover:bg-white/[0.06]"
+              >
+                <span className="text-2xl">{h.icon}</span>
+                <h4 className="mt-3 font-display text-lg font-semibold text-white">{h.title}</h4>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">{h.text}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="relative mt-10 rounded-2xl border border-white/10 bg-black/20 p-6">
+            <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-white/40">// lead lifecycle</p>
+            <ol className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+              {skylure.flow.map((f, i) => (
+                <motion.li
+                  key={f.step}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="relative rounded-xl border border-white/10 bg-white/[0.03] p-3"
+                >
+                  <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-[#e3c891] to-[#8a6d3b] font-mono text-xs font-bold text-black">{i + 1}</span>
+                  <p className="mt-2.5 text-sm font-medium leading-snug text-white/85">{f.step}</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-[#c9a96e]/80">{f.who}</p>
+                </motion.li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="relative mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.4fr] [&>*]:min-w-0">
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-6">
+              <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-white/40">// pages</p>
+              <div className="flex flex-wrap gap-2">
+                {skylure.pages.map((pg) => (
+                  <span key={pg} className="rounded-lg bg-white/5 px-2.5 py-1.5 font-mono text-xs text-white/75 ring-1 ring-white/10">
+                    {pg}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-4 text-xs leading-relaxed text-white/45">Public pages for buyers and sellers, plus a private CRM area for the admin.</p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-6">
+              <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-white/40">// what I delivered, end to end</p>
+              <ul className="grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+                {skylure.scope.map((sc) => (
+                  <li key={sc} className="flex items-start gap-2.5 text-sm text-white/75">
+                    <span className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-[#c9a96e]/20 text-[10px] text-[#e3c891]">✓</span>
+                    {sc}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </article>
       </Reveal>
