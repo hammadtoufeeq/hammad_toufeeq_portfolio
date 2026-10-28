@@ -172,3 +172,19 @@ export const certificates = [
     link: 'https://www.coursera.org/account/accomplishments/verify/H6LBWZ58OGG2',
   },
 ]
+
+export const skylure = {
+  name: 'Skylure Jet',
+  label: 'Client Project · Freelance',
+  tagline: 'Private aircraft acquisition & sales advisory.',
+  description:
+    'A premium website and lead-management system for a private aviation advisory that helps corporations and high-net-worth individuals buy and sell private aircraft. Designed and built solo, from the public site to the admin CRM.',
+  live: 'https://skylurejet.com',
+  features: [
+    { icon: '✈️', text: 'Buy / Sell tabbed inquiry form capturing aircraft category, budget, new or pre-owned, passenger capacity and mission' },
+    { icon: '📊', text: 'Admin CRM to review every inquiry, track its status and send price quotes to clients' },
+    { icon: '🛩️', text: 'Dedicated Aircraft Acquisition and Aircraft Sales pages with a luxury, conversion-focused design' },
+    { icon: '💬', text: 'One-tap WhatsApp contact and fully responsive layout for clients on the move' },
+  ],
+  tags: ['React', 'Full-stack', 'Admin CRM', 'Lead management', 'Responsive UI'],
+}

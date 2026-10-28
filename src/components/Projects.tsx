@@ -1,7 +1,8 @@
 import { motion } from 'motion/react'
-import { glowbot, influence } from '../data'
+import { glowbot, influence, skylure } from '../data'
 import AgreementDemo from './AgreementDemo'
 import { ArrowIcon, GitHubIcon } from './Icons'
+import SkylureDemo from './SkylureDemo'
 import { Reveal, Section, SectionTitle } from './Section'
 
 export default function Projects() {
@@ -115,6 +116,49 @@ export default function Projects() {
               </ol>
               <p className="mt-4 text-xs leading-relaxed text-white/45">Every request is validated with Zod and answers in one consistent JSON shape for success and errors.</p>
             </div>
+          </div>
+        </article>
+      </Reveal>
+
+      {/* Skylure Jet (client) */}
+      <Reveal className="mt-8">
+        <article className="glass relative overflow-hidden rounded-[2rem] p-6 sm:p-8 md:p-12">
+          <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-amber-400/25 to-yellow-700/10 blur-3xl" />
+          <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-2 [&>*]:min-w-0">
+            <div>
+              <div className="mb-5 flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-gradient-to-r from-[#e3c891] to-[#a8844a] px-3 py-1 text-xs font-bold uppercase tracking-wider text-black">{skylure.label}</span>
+                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">● Live</span>
+              </div>
+              <h3 className="font-display text-4xl font-bold text-white md:text-5xl">{skylure.name}</h3>
+              <p className="mt-3 text-xl font-medium text-[#e3c891]">{skylure.tagline}</p>
+              <p className="mt-5 leading-relaxed text-white/65">{skylure.description}</p>
+              <ul className="mt-6 space-y-3">
+                {skylure.features.map((f) => (
+                  <li key={f.text} className="flex items-start gap-3 text-white/75">
+                    <span className="text-lg">{f.icon}</span>
+                    <span className="leading-relaxed">{f.text}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {skylure.tags.map((t) => (
+                  <span key={t} className="rounded-full bg-white/5 px-3 py-1 font-mono text-xs text-white/60 ring-1 ring-white/10">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={skylure.live}
+                target="_blank"
+                rel="noreferrer"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#e3c891] to-[#c9a96e] px-6 py-3 font-semibold text-black transition hover:scale-105"
+              >
+                Visit skylurejet.com <ArrowIcon className="h-4 w-4 transition-transform group-hover:rotate-45" />
+              </a>
+            </div>
+
+            <SkylureDemo />
           </div>
         </article>
       </Reveal>
