@@ -33,6 +33,6 @@ node resume/build-resume.cjs
 
 ## Contact form
 
-The form sends messages straight to hammadtoufeeq02@gmail.com through [FormSubmit](https://formsubmit.co), with no backend and no API keys.
-
-**One-time activation:** after the site is live, submit the form once yourself. FormSubmit emails you an activation link; click it, and every message after that lands in your inbox. Check spam if it does not show up.
+The form sends messages straight to hammadtoufeeq02@gmail.com through [Web3Forms](https://web3forms.com), with no backend.
+The access key in `src/components/Contact.tsx` is public by design. Manage the form (and see past submissions) in the Web3Forms dashboard.
+If a request takes longer than 15 seconds, the form stops waiting and shows an error with the email address instead.

@@ -4,10 +4,12 @@ import { profile } from '../data'
 import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from './Icons'
 import { Reveal, Section } from './Section'
 
-// FormSubmit (https://formsubmit.co) forwards submissions to the inbox; no account or keys needed.
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${profile.email}`
+// Web3Forms (https://web3forms.com) emails submissions to the inbox. The access key is public by design.
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit'
+const WEB3FORMS_KEY = '2f488476-7ea2-46c8-9a77-8e6e4e0fd03c'
+const TIMEOUT_MS = 15000
 
-type Status = 'idle' | 'sending' | 'sent' | 'activate' | 'error'
+type Status = 'idle' | 'sending' | 'sent' | 'error'
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>('idle')
@@ -17,31 +19,33 @@ export default function Contact() {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
-    if (data.get('_honey')) return
+    if (data.get('botcheck')) return
 
     setStatus('sending')
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), TIMEOUT_MS)
     try {
       const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Portfolio message from ${data.get('name')}`,
+          from_name: 'Hammad Toufeeq Portfolio',
           name: data.get('name'),
           email: data.get('email'),
           message: data.get('message'),
-          _subject: `Portfolio message from ${data.get('name')}`,
-          _replyto: data.get('email'),
-          _template: 'table',
-          _captcha: 'false',
         }),
+        signal: controller.signal,
       })
       const json = await res.json().catch(() => ({}))
-      // The very first submission only triggers FormSubmit's activation email to the owner.
-      if (/activat/i.test(String(json.message ?? ''))) return setStatus('activate')
-      if (!res.ok || String(json.success) !== 'true') throw new Error(json.message ?? 'Send failed')
+      if (!res.ok || !json.success) throw new Error(json.message ?? 'Send failed')
       setStatus('sent')
       form.reset()
     } catch {
       setStatus('error')
+    } finally {
+      clearTimeout(timer)
     }
   }
 
@@ -115,7 +119,7 @@ export default function Contact() {
             </div>
 
             <form onSubmit={onSubmit} className="glass rounded-3xl p-6 sm:p-8">
-              <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+              <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="mb-2 block text-sm font-medium text-white/70">Your name</label>
@@ -141,19 +145,15 @@ export default function Contact() {
               </button>
 
               <AnimatePresence>
-                {(status === 'sent' || status === 'activate' || status === 'error') && (
+                {(status === 'sent' || status === 'error') && (
                   <motion.p
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     role="status"
-                    className={`mt-4 text-center text-sm ${status === 'error' ? 'text-rose-300' : status === 'activate' ? 'text-amber-300' : 'text-emerald-300'}`}
+                    className={`mt-4 text-center text-sm ${status === 'sent' ? 'text-emerald-300' : 'text-rose-300'}`}
                   >
-                    {status === 'sent'
-                      ? "Thanks! Your message is on its way. I'll get back to you soon."
-                      : status === 'activate'
-                        ? 'The form needs a one-time activation. Check the inbox for the FormSubmit email, then send again.'
-                        : `Something went wrong. Please email me at ${profile.email}.`}
+                    {status === 'sent' ? "Thanks! Your message is on its way. I'll get back to you soon." : `Something went wrong. Please email me at ${profile.email}.`}
                   </motion.p>
                 )}
               </AnimatePresence>
