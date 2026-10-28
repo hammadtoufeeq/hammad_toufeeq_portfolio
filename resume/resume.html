@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Hammad Toufeeq - Resume</title>
+<style>
+  @page { size: A4; margin: 10mm 13mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #1f1b2e; font-size: 9.6pt; line-height: 1.36; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 10px; border-bottom: 3px solid; border-image: linear-gradient(90deg, #7c3aed, #db2777, #0891b2) 1; }
+  h1 { font-size: 25pt; letter-spacing: -0.5px; color: #12101f; line-height: 1.1; }
+  .title { font-size: 12pt; font-weight: 600; color: #a21caf; margin-top: 2px; }
+  .contact { text-align: right; font-size: 9pt; color: #444; line-height: 1.6; }
+  .contact a { color: #444; text-decoration: none; }
+  h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1.6px; color: #7c3aed; margin: 10px 0 5px; padding-bottom: 3px; border-bottom: 1px solid #e6e1f2; }
+  .summary { margin-top: 10px; color: #333; }
+  .item { margin-bottom: 7px; break-inside: avoid; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .role { font-weight: 700; font-size: 10.8pt; color: #12101f; }
+  .org { font-weight: 600; color: #a21caf; }
+  .date { font-size: 9pt; color: #666; white-space: nowrap; }
+  ul { padding-left: 15px; margin-top: 3px; }
+  li { margin-bottom: 2px; }
+  .skills { display: grid; grid-template-columns: 118px 1fr; gap: 3px 10px; }
+  .skills b { color: #12101f; }
+  .muted { color: #555; }
+  a { color: #7c3aed; }
+  .proj-links { font-size: 9pt; }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Hammad Toufeeq</h1>
+      <div class="title">MERN Stack Developer</div>
+    </div>
+    <div class="contact">
+      Lahore, Pakistan · Onsite & Remote<br />
+      <a href="mailto:hammadtoufeeq02@gmail.com">hammadtoufeeq02@gmail.com</a> · +92 306 1694526<br />
+      <a href="https://www.linkedin.com/in/hammad-toufeeq/">linkedin.com/in/hammad-toufeeq</a> · <a href="https://github.com/hammadtoufeeq">github.com/hammadtoufeeq</a>
+    </div>
+  </header>
+
+  <p class="summary">
+    MERN stack developer and Computer Science graduate who builds full-stack web apps end to end: typed React frontends, secure
+    Express + MongoDB APIs and production deployments on Vercel. Built and shipped <b>Influence Platform</b>, a multi-role
+    marketplace with campaigns, milestone-based digital agreements and email-code signing, in English, Urdu and Arabic.
+  </p>
+
+  <h2>Experience</h2>
+  <div class="item">
+    <div class="row"><span class="role">MERN Stack Developer Intern · <span class="org">Axcel</span></span><span class="date">Jul 2026 – Present · Lahore</span></div>
+    <ul>
+      <li>Built <b>Influence Platform</b> end to end, a production marketplace connecting businesses with creators, journalists, speakers and experts.</li>
+      <li>Designed a typed Express 5 + MongoDB REST API (MVC) with Zod validation, JWT cookie auth, Google sign-in, rate limiting and Helmet.</li>
+      <li>Implemented role-based dashboards for 4 account types (Admin, Business, Manager, Talent) with verification and approval workflows.</li>
+      <li>Shipped a two-party digital agreement flow with milestones, signed by business and talent using one-time codes sent by email.</li>
+      <li>Delivered a fully translated UI in English, Urdu and Arabic (RTL) with dark mode and mobile-first design.</li>
+      <li>Wrote API tests with Jest, Supertest and in-memory MongoDB; deployed frontend and backend on Vercel.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><span class="role">Information Systems Intern · <span class="org">Fauji Fertilizer Company (FFC), Commercial Tower</span></span><span class="date">May 2026 – Jun 2026 · Lahore</span></div>
+    <ul>
+      <li>Worked with the IS team on the day-to-day running of the company's business information systems.</li>
+      <li>Learned how enterprise teams manage users, data and support requests in a large corporate environment.</li>
+    </ul>
+  </div>
+
+  <h2>Projects</h2>
+  <div class="item">
+    <div class="row"><span class="role">Influence Platform</span><span class="date">React · TypeScript · Node.js · Express · MongoDB</span></div>
+    <div class="proj-links"><a href="https://influencer-frontend-kappa.vercel.app">influencer-frontend-kappa.vercel.app</a> · <a href="https://github.com/hammadtoufeeq/influencer_frontend">Frontend repo</a> · <a href="https://github.com/hammadtoufeeq/influencer_backend">Backend repo</a></div>
+    <ul>
+      <li>Marketplace covering discovery, hire requests, campaigns, shortlists, agreements, milestone delivery and two-way reviews.</li>
+      <li>Advanced search by profession, industry, topic, country, city, language and follower count, using TanStack Query for caching.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><span class="role">GlowBot: AI Skin Analysis App <span class="muted">(Final Year Project)</span></span></div>
+    <ul>
+      <li>Analyses a photo of the user's skin to detect acne, dark circles, pigmentation and other concerns.</li>
+      <li>Suggests solutions and ingredients (e.g. Vitamin C), recommends a diet plan, and finds nearby dermatologists with in-app appointment booking.</li>
+    </ul>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="skills">
+    <b>Frontend</b><span>React 19, TypeScript, JavaScript (ES6+), Tailwind CSS, React Router, TanStack Query, i18next, HTML5, CSS3</span>
+    <b>Backend</b><span>Node.js, Express, REST APIs, MongoDB, Mongoose, Zod, JWT, Google OAuth, Nodemailer, Multer</span>
+    <b>Testing & Security</b><span>Jest, Supertest, Playwright, Helmet, rate limiting, bcrypt</span>
+    <b>Tools</b><span>Git, GitHub, Vercel, Vite, Postman, VS Code, Claude Code</span>
+    <b>Languages</b><span>English, Urdu</span>
+  </div>
+
+  <h2>Education</h2>
+  <div class="item">
+    <div class="row"><span class="role">BS Computer Science · <span class="org">University of Central Punjab (UCP)</span></span><span class="date">Lahore</span></div>
+    <div class="muted">CGPA 3.29 · Final Year Project: GlowBot</div>
+  </div>
+
+  <h2>Certifications</h2>
+  <div class="item">
+    <div class="row"><span><b>Introduction to Generative AI</b> · Coursera</span><a class="date" href="https://www.coursera.org/account/accomplishments/verify/H6LBWZ58OGG2">Verify</a></div>
+  </div>
+</body>
+</html>
