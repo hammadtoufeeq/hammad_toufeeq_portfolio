@@ -32,7 +32,7 @@ export function SectionTitle({ eyebrow, title, accent, subtitle }: { eyebrow: st
 
 export function Section({ id, children, className = '' }: { id: string; children: ReactNode; className?: string }) {
   return (
-    <section id={id} className={`relative mx-auto w-full max-w-7xl scroll-mt-24 px-4 py-24 sm:px-6 md:py-32 lg:px-8 ${className}`}>
+    <section id={id} className={`relative mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8 ${className}`}>
       {children}
     </section>
   )

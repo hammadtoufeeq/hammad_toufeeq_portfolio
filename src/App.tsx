@@ -16,7 +16,7 @@ import Footer from './components/Footer'
 export default function App() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const lenis = new Lenis({ duration: 1.1, anchors: { offset: -80 } })
+    const lenis = new Lenis({ duration: 1.1, anchors: true })
     let frame = 0
     const raf = (time: number) => {
       lenis.raf(time)

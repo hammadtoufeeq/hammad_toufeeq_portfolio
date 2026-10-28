@@ -23,7 +23,7 @@ function SpotlightCard({ children }: { children: React.ReactNode }) {
 
 export default function Skills() {
   return (
-    <div id="skills" className="scroll-mt-24">
+    <div id="skills">
       <Section id="skills-inner" className="pb-12 md:pb-16">
         <SectionTitle
           eyebrow="Tech stack"
