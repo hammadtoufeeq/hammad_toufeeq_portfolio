@@ -34,7 +34,7 @@ export default function SkylureDemo() {
         </div>
 
         <div className="p-5">
-          <div className="mb-4 flex items-end justify-between gap-3">
+          <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#c9a96e]">Skylure CRM</p>
               <p className="font-serif text-lg tracking-wide text-white">Aircraft inquiries</p>
@@ -70,9 +70,9 @@ export default function SkylureDemo() {
             </AnimatePresence>
           </div>
 
-          <div className="mt-4 flex items-center justify-between rounded-xl border border-[#c9a96e]/20 bg-[#c9a96e]/[0.06] px-3 py-2.5 text-xs">
-            <span className="text-white/60">Quote for Super-Midsize · 8–10 pax</span>
-            <span className="font-semibold text-[#e3c891]">Send quote →</span>
+          <div className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#c9a96e]/20 bg-[#c9a96e]/[0.06] px-3 py-2.5 text-xs">
+            <span className="min-w-0 truncate text-white/60">Quote · Super-Midsize, 8–10 pax</span>
+            <span className="shrink-0 whitespace-nowrap font-semibold text-[#e3c891]">Send quote →</span>
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@ export default function CodeCard() {
         <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
         <span className="ml-3 font-mono text-xs text-white/45">developer.ts</span>
       </div>
-      <pre className="overflow-x-auto p-5 font-mono text-[12.5px] leading-7 sm:text-sm">
+      <pre className="overflow-x-auto p-4 font-mono text-[11px] leading-6 min-[400px]:text-[12.5px] sm:p-5 sm:text-sm sm:leading-7">
         {lines.map((line, i) => {
           const visible = left > 0
           const parts = line.map(([text, cls], j) => {
@@ -63,7 +63,7 @@ export default function CodeCard() {
           const typing = visible && left < 0 && shown < total
           return (
             <div key={i} className="flex">
-              <span className="mr-4 w-5 shrink-0 select-none text-right text-white/20">{i + 1}</span>
+              <span className="mr-3 w-4 shrink-0 select-none text-right text-white/20 sm:mr-4 sm:w-5">{i + 1}</span>
               <span className="whitespace-pre">
                 {parts}
                 {(typing || (i === lines.length - 1 && shown >= total)) && (

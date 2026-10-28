@@ -95,13 +95,13 @@ export default function Contact() {
 
               <button
                 onClick={copyEmail}
-                className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/20 py-2 pl-5 pr-2 font-mono text-sm text-white transition hover:border-white/50"
+                className="mt-8 inline-flex max-w-full items-center gap-3 rounded-full border border-white/20 bg-black/20 py-2 pl-4 pr-2 font-mono text-xs text-white transition hover:border-white/50 sm:pl-5 sm:text-sm"
               >
-                {profile.email}
-                <span className="rounded-full bg-white px-3 py-1.5 font-sans text-xs font-semibold text-ink">{copied ? 'Copied ✓' : 'Copy'}</span>
+                <span className="truncate">{profile.email}</span>
+                <span className="shrink-0 rounded-full bg-white px-3 py-1.5 font-sans text-xs font-semibold text-ink">{copied ? 'Copied ✓' : 'Copy'}</span>
               </button>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 [&>*]:min-w-0">
                 {channels.map((c) => (
                   <a
                     key={c.label}
@@ -113,7 +113,7 @@ export default function Contact() {
                     <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white transition group-hover:bg-gradient-to-br group-hover:from-fuchsia-500 group-hover:to-cyan-500">
                       {c.icon}
                     </span>
-                    <span className="min-w-0">
+                    <span className="min-w-0 flex-1">
                       <span className="block text-xs text-white/50">{c.label}</span>
                       <span className="block truncate text-sm font-medium text-white">{c.value}</span>
                     </span>

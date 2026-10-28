@@ -17,7 +17,7 @@ export default function Projects() {
 
       {/* Influence Platform */}
       <Reveal>
-        <article className="glass gradient-border overflow-hidden rounded-[2rem] p-6 sm:p-8 md:p-12">
+        <article className="glass gradient-border overflow-hidden rounded-[2rem] p-4 sm:p-8 md:p-12">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 [&>*]:min-w-0">
             <div>
               <div className="mb-5 flex flex-wrap items-center gap-2">
@@ -122,7 +122,7 @@ export default function Projects() {
 
       {/* Skylure Jet (client) */}
       <Reveal className="mt-8">
-        <article className="glass relative overflow-hidden rounded-[2rem] border-[#c9a96e]/30 p-6 sm:p-8 md:p-12">
+        <article className="glass relative overflow-hidden rounded-[2rem] border-[#c9a96e]/30 p-4 sm:p-8 md:p-12">
           <div className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-gradient-to-br from-amber-400/25 to-yellow-700/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 -right-24 h-80 w-80 rounded-full bg-gradient-to-br from-yellow-600/15 to-stone-500/10 blur-3xl" />
 
@@ -178,7 +178,7 @@ export default function Projects() {
 
           <div className="relative mt-10 rounded-2xl border border-white/10 bg-black/20 p-6">
             <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-white/40">// lead lifecycle</p>
-            <ol className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+            <ol className="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
               {skylure.flow.map((f, i) => (
                 <motion.li
                   key={f.step}
@@ -226,7 +226,7 @@ export default function Projects() {
 
       {/* GlowBot */}
       <Reveal className="mt-8">
-        <article className="glass relative overflow-hidden rounded-[2rem] p-6 sm:p-8 md:p-12">
+        <article className="glass relative overflow-hidden rounded-[2rem] p-4 sm:p-8 md:p-12">
           <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-pink-500/30 to-amber-400/20 blur-3xl" />
           <div className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.1fr] [&>*]:min-w-0">
             <div className="relative mx-auto grid aspect-square w-full max-w-xs place-items-center">
@@ -251,7 +251,7 @@ export default function Projects() {
               {['Acne', 'Dark circles', 'Pigmentation'].map((t, i) => (
                 <motion.span
                   key={t}
-                  className={`glass absolute rounded-full px-3 py-1.5 text-xs font-semibold text-white ${
+                  className={`absolute whitespace-nowrap rounded-full border border-white/15 bg-[#141126]/85 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur ${
                     ['left-0 top-6', 'right-0 top-1/2', 'bottom-4 left-6'][i]
                   }`}
                   animate={{ y: [0, -8, 0] }}

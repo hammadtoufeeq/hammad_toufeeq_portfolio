@@ -22,11 +22,11 @@ function Otp({ active, done }: { active: boolean; done: boolean }) {
     return () => clearInterval(t)
   }, [active, done])
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-0.5 sm:gap-1">
       {code.split('').map((d, i) => (
         <span
           key={i}
-          className={`grid h-7 w-6 place-items-center rounded-md font-mono text-xs transition-colors ${
+          className={`grid h-6 w-5 place-items-center rounded-md font-mono text-[11px] transition-colors sm:h-7 sm:w-6 sm:text-xs ${
             i < n ? 'bg-fuchsia-500/25 text-white ring-1 ring-fuchsia-400/60' : 'bg-white/5 text-transparent ring-1 ring-white/10'
           }`}
         >
@@ -63,8 +63,8 @@ function Party({ who, name, avatar, state }: { who: string; name: string; avatar
           )}
         </AnimatePresence>
       </div>
-      <div className="mt-3 flex items-center justify-between gap-2">
-        <span className="text-[11px] text-white/40">Email code</span>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5">
+        <span className="text-[11px] leading-tight text-white/40">Email code</span>
         <Otp active={state === 'signing'} done={state === 'signed'} />
       </div>
     </div>
@@ -92,11 +92,11 @@ export default function AgreementDemo() {
           <span className="ml-3 truncate rounded-md bg-white/5 px-3 py-1 font-mono text-[11px] text-white/45">influence-platform / agreements / AGR-1042</span>
         </div>
 
-        <div className="space-y-4 p-5">
-          <div className="flex items-start justify-between gap-3">
+        <div className="space-y-4 p-4 sm:p-5">
+          <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-widest text-white/40">Agreement</p>
-              <p className="font-display text-lg font-semibold text-white">Ramadan Brand Campaign</p>
+              <p className="font-display text-base font-semibold text-white sm:text-lg">Ramadan Brand Campaign</p>
             </div>
             <motion.span
               key={step}
@@ -112,12 +112,12 @@ export default function AgreementDemo() {
 
           <div className="space-y-2">
             {milestones.map((m, k) => (
-              <div key={m.name} className="flex items-center justify-between rounded-xl bg-white/[0.03] px-3 py-2 text-sm">
-                <span className="flex items-center gap-2 text-white/75">
+              <div key={m.name} className="flex items-center justify-between gap-3 rounded-xl bg-white/[0.03] px-3 py-2 text-xs sm:text-sm">
+                <span className="flex min-w-0 items-center gap-2 text-white/75">
                   <span className="grid h-5 w-5 place-items-center rounded-md bg-white/10 font-mono text-[10px] text-white/60">{k + 1}</span>
                   {m.name}
                 </span>
-                <span className="font-mono text-xs text-white/55">{m.amount}</span>
+                <span className="shrink-0 whitespace-nowrap font-mono text-[11px] text-white/55 sm:text-xs">{m.amount}</span>
               </div>
             ))}
           </div>

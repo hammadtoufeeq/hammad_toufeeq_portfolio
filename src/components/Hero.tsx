@@ -45,13 +45,13 @@ const word = {
 export default function Hero() {
   return (
     <section id="top" className="relative mx-auto flex min-h-screen max-w-7xl items-center px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-      <div className="grid w-full items-center gap-16 lg:grid-cols-[1.25fr_1fr]">
+      <div className="grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-[1.25fr_1fr] [&>*]:min-w-0">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"
+            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-xs text-emerald-200 sm:text-sm"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -74,7 +74,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75 }}
-            className="mt-6 font-display text-2xl font-medium text-white/90 sm:text-3xl"
+            className="mt-6 font-display text-lg font-medium text-white/90 min-[400px]:text-2xl sm:text-3xl"
           >
             <RotatingRole />
           </motion.p>
