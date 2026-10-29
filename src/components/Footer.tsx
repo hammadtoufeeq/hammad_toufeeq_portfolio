@@ -3,6 +3,7 @@ import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from './Icons'
 
 const nav = [
   { id: 'about', label: 'About' },
+  { id: 'services', label: 'Services' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },

@@ -4,6 +4,7 @@ import { profile } from '../data'
 
 const links = [
   { id: 'about', label: 'About' },
+  { id: 'services', label: 'Services' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
@@ -54,7 +55,7 @@ export default function Navbar() {
           <span className="hidden font-display text-lg font-semibold text-white sm:block">{profile.firstName}</span>
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 lg:flex">
           {links.map((l) => (
             <li key={l.id}>
               <a
@@ -87,7 +88,7 @@ export default function Navbar() {
           </a>
           <button
             onClick={() => setOpen((o) => !o)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 md:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 lg:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
@@ -106,7 +107,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -12, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.97 }}
-            className="glass mx-auto mt-2 max-w-5xl rounded-3xl p-3 md:hidden"
+            className="glass mx-auto mt-2 max-w-5xl rounded-3xl p-3 lg:hidden"
           >
             {links.map((l, i) => (
               <motion.a

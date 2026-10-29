@@ -10,12 +10,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/hammad-toufeeq/',
   github: 'https://github.com/hammadtoufeeq',
   resume: '/Hammad-Toufeeq-Resume.pdf',
-  roles: [
-    'MERN Stack Developer',
-    'React + TypeScript Engineer',
-    'Node.js API Builder',
-    'Full-Stack Problem Solver',
-  ],
+  roles: ['MERN Stack Developer', 'Full-Stack Developer', 'React Developer', 'Node.js Developer'],
   intro:
     'I build full-stack web apps end to end: typed React frontends, secure Express APIs and MongoDB data models, shipped to production on Vercel.',
   about: [
@@ -231,3 +226,44 @@ export const skylure = {
   ],
   tags: ['React', 'Full-stack', 'Admin CRM', 'Lead management', 'Responsive UI'],
 }
+
+export const services = [
+  {
+    icon: '🧩',
+    title: 'Full-Stack Web Apps',
+    text: 'End-to-end MERN applications, from database design and APIs to a polished UI and production deployment.',
+  },
+  {
+    icon: '🎨',
+    title: 'Frontend Development',
+    text: 'Responsive, accessible React + TypeScript interfaces with Tailwind CSS, multi-language and right-to-left ready.',
+  },
+  {
+    icon: '🛠️',
+    title: 'Backend & REST APIs',
+    text: 'Secure Node.js / Express APIs with MongoDB, JWT and Google auth, Zod validation, rate limiting and clean contracts.',
+  },
+  {
+    icon: '📊',
+    title: 'Admin Dashboards & CRMs',
+    text: 'Role-based dashboards and CRMs to manage leads, inquiries, quotes, approvals and users in one place.',
+  },
+  {
+    icon: '🌐',
+    title: 'Business & Client Websites',
+    text: 'Premium, conversion-focused websites with inquiry forms and WhatsApp contact, launched on your own domain.',
+  },
+  {
+    icon: '✅',
+    title: 'Testing & Deployment',
+    text: 'API and end-to-end tests with Jest, Supertest and Playwright, and fast, reliable deploys on Vercel.',
+  },
+]
+
+// Honest levels instead of self-rated percentages
+export const focusAreas = [
+  { name: 'React + TypeScript', level: 'Production', width: 92 },
+  { name: 'Node.js + Express', level: 'Production', width: 88 },
+  { name: 'MongoDB + Mongoose', level: 'Production', width: 85 },
+  { name: 'SAP ERP (MM, FI)', level: 'Working knowledge', width: 55 },
+]

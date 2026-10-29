@@ -51,7 +51,7 @@ export default function SkylureDemo() {
               <motion.div
                 key={q.name}
                 initial={false}
-                animate={i < count ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+                animate={i < count ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
                 transition={{ duration: 0.4 }}
                 className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-2.5"
               >
