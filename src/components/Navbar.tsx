@@ -79,7 +79,8 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href={profile.resume}
-            download
+            target="_blank"
+            rel="noreferrer"
             className="hidden rounded-full bg-white px-5 py-2 text-sm font-semibold text-ink transition hover:scale-105 hover:bg-fuchsia-100 sm:block"
           >
             Resume
@@ -120,8 +121,8 @@ export default function Navbar() {
                 {l.label}
               </motion.a>
             ))}
-            <a href={profile.resume} download className="mt-2 block rounded-2xl bg-white px-4 py-3 text-center font-semibold text-ink">
-              Download Resume
+            <a href={profile.resume} target="_blank" rel="noreferrer" className="mt-2 block rounded-2xl bg-white px-4 py-3 text-center font-semibold text-ink">
+              Resume
             </a>
           </motion.div>
         )}

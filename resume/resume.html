@@ -3,105 +3,100 @@
 <head>
 <meta charset="utf-8" />
 <title>Hammad Toufeeq - Resume</title>
+<!-- ATS-friendly: single column, standard fonts and headings, black text, links written out as plain text. -->
 <style>
   @page { size: A4; margin: 10mm 13mm; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #1f1b2e; font-size: 9.6pt; line-height: 1.36; }
-  header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 10px; border-bottom: 3px solid; border-image: linear-gradient(90deg, #7c3aed, #db2777, #0891b2) 1; }
-  h1 { font-size: 25pt; letter-spacing: -0.5px; color: #12101f; line-height: 1.1; }
-  .title { font-size: 12pt; font-weight: 600; color: #a21caf; margin-top: 2px; }
-  .contact { text-align: right; font-size: 9pt; color: #444; line-height: 1.6; }
-  .contact a { color: #444; text-decoration: none; }
-  h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1.6px; color: #7c3aed; margin: 10px 0 5px; padding-bottom: 3px; border-bottom: 1px solid #e6e1f2; }
-  .summary { margin-top: 10px; color: #333; }
-  .item { margin-bottom: 7px; break-inside: avoid; }
-  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-  .role { font-weight: 700; font-size: 10.8pt; color: #12101f; }
-  .org { font-weight: 600; color: #a21caf; }
-  .date { font-size: 9pt; color: #666; white-space: nowrap; }
-  ul { padding-left: 15px; margin-top: 3px; }
-  li { margin-bottom: 2px; }
-  .skills { display: grid; grid-template-columns: 118px 1fr; gap: 3px 10px; }
-  .skills b { color: #12101f; }
-  .muted { color: #555; }
-  a { color: #7c3aed; }
-  .proj-links { font-size: 9pt; }
+  body { font-family: Arial, Helvetica, sans-serif; color: #000; font-size: 9.6pt; line-height: 1.3; }
+  a { color: #000; text-decoration: none; }
+  h1 { font-size: 20pt; text-align: center; letter-spacing: 0.5px; }
+  .headline { text-align: center; font-size: 11pt; margin-top: 2px; }
+  .contact { text-align: center; font-size: 9.5pt; margin-top: 4px; }
+  h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0 4px; padding-bottom: 2px; border-bottom: 1px solid #000; }
+  .item { margin-bottom: 5px; }
+  .row { display: flex; justify-content: space-between; gap: 12px; }
+  .row .right { white-space: nowrap; }
+  .sub { font-style: italic; }
+  ul { padding-left: 16px; margin-top: 2px; }
+  li { margin-bottom: 1.5px; }
+  p { margin-bottom: 2px; }
 </style>
 </head>
 <body>
-  <header>
-    <div>
-      <h1>Hammad Toufeeq</h1>
-      <div class="title">MERN Stack Developer</div>
-    </div>
-    <div class="contact">
-      Lahore, Pakistan · Onsite & Remote<br />
-      <a href="mailto:hammadtoufeeq02@gmail.com">hammadtoufeeq02@gmail.com</a> · +92 306 1694526<br />
-      <a href="https://www.linkedin.com/in/hammad-toufeeq/">linkedin.com/in/hammad-toufeeq</a> · <a href="https://github.com/hammadtoufeeq">github.com/hammadtoufeeq</a>
-    </div>
-  </header>
+  <h1>HAMMAD TOUFEEQ</h1>
+  <p class="headline">MERN Stack Developer</p>
+  <p class="contact">
+    Lahore, Pakistan | +92 306 1694526 | <a href="mailto:hammadtoufeeq02@gmail.com">hammadtoufeeq02@gmail.com</a><br />
+    <a href="https://www.linkedin.com/in/hammad-toufeeq/">linkedin.com/in/hammad-toufeeq</a> | <a href="https://github.com/hammadtoufeeq">github.com/hammadtoufeeq</a> | Open to onsite and remote roles
+  </p>
 
-  <p class="summary">
-    MERN stack developer and Computer Science graduate who builds full-stack web apps end to end: typed React frontends, secure
-    Express + MongoDB APIs and production deployments on Vercel. Built and shipped <b>Influence Platform</b>, a multi-role
-    marketplace with campaigns, milestone-based digital agreements and email-code signing, in English, Urdu and Arabic.
+  <h2>Summary</h2>
+  <p>
+    MERN Stack Developer and Computer Science graduate who builds full-stack web applications end to end with React, TypeScript,
+    Node.js, Express and MongoDB. Built and shipped Influence Platform, a production multi-role marketplace with campaigns,
+    milestone-based digital agreements and email-code signing, and delivered a client website with an admin CRM.
   </p>
 
   <h2>Experience</h2>
   <div class="item">
-    <div class="row"><span class="role">MERN Stack Developer Intern · <span class="org">Axcel</span></span><span class="date">Jul 2026 – Present · Lahore</span></div>
+    <div class="row"><strong>MERN Stack Developer Intern</strong><span class="right">Jul 2026 – Present</span></div>
+    <div class="row"><span class="sub">Axcel</span><span class="right sub">Lahore, Pakistan</span></div>
     <ul>
-      <li>Built <b>Influence Platform</b> end to end, a production marketplace connecting businesses with creators, journalists, speakers and experts.</li>
-      <li>Designed a typed Express 5 + MongoDB REST API (MVC) with Zod validation, JWT cookie auth, Google sign-in, rate limiting and Helmet.</li>
+      <li>Built Influence Platform end to end, a production marketplace connecting businesses with creators, journalists, speakers and experts.</li>
+      <li>Designed a TypeScript REST API with Express 5 and MongoDB (MVC) with Zod validation, JWT cookie authentication, Google sign-in, rate limiting and Helmet.</li>
       <li>Implemented role-based dashboards for 4 account types (Admin, Business, Manager, Talent) with verification and approval workflows.</li>
-      <li>Shipped a two-party digital agreement flow with milestones, signed by business and talent using one-time codes sent by email.</li>
-      <li>Delivered a fully translated UI in English, Urdu and Arabic (RTL) with dark mode and mobile-first design.</li>
+      <li>Developed a two-party digital agreement flow with milestones, signed by business and talent using one-time codes sent by email.</li>
+      <li>Delivered a fully translated UI in English, Urdu and Arabic (right-to-left) with dark mode and mobile-first design.</li>
       <li>Wrote API tests with Jest, Supertest and in-memory MongoDB; deployed frontend and backend on Vercel.</li>
     </ul>
   </div>
   <div class="item">
-    <div class="row"><span class="role">Information Systems Intern · <span class="org">Fauji Fertilizer Company (FFC), Commercial Tower</span></span><span class="date">May 2026 – Jun 2026 · Lahore</span></div>
+    <div class="row"><strong>Information Systems Intern</strong><span class="right">May 2026 – Jun 2026</span></div>
+    <div class="row"><span class="sub">Fauji Fertilizer Company (FFC), Commercial Tower</span><span class="right sub">Lahore, Pakistan</span></div>
     <ul>
-      <li>Worked hands-on in <b>SAP ERP</b> across the <b>Materials Management (MM)</b> and <b>Finance (FI)</b> modules using standard SAP T-codes.</li>
-      <li>Followed the procure-to-pay flow in SAP MM (purchase requisitions, purchase orders, goods receipt, invoice verification) and how it posts into FI.</li>
+      <li>Worked hands-on in SAP ERP across the Materials Management (MM) and Finance (FI) modules using standard SAP transaction codes (T-codes).</li>
+      <li>Followed the procure-to-pay process in SAP MM (purchase requisitions, purchase orders, goods receipt, invoice verification) and its postings into SAP FI.</li>
     </ul>
   </div>
 
   <h2>Projects</h2>
   <div class="item">
-    <div class="row"><span class="role">Influence Platform</span><span class="date">React · TypeScript · Node.js · Express · MongoDB</span></div>
-    <div class="proj-links"><a href="https://influencer-frontend-kappa.vercel.app">influencer-frontend-kappa.vercel.app</a> · <a href="https://github.com/hammadtoufeeq/influencer_frontend">Frontend repo</a> · <a href="https://github.com/hammadtoufeeq/influencer_backend">Backend repo</a></div>
+    <div class="row"><span><strong>Influence Platform</strong> | React, TypeScript, Node.js, Express, MongoDB</span></div>
+    <p>Live: influencer-frontend-kappa.vercel.app | Code: github.com/hammadtoufeeq/influencer_frontend</p>
     <ul>
-      <li>Marketplace covering advanced talent search, hire requests, campaigns, shortlists, agreements, milestone delivery and two-way reviews.</li>
+      <li>Talent marketplace covering advanced search, hire requests, campaigns, shortlists, agreements, milestone delivery and two-way reviews.</li>
     </ul>
   </div>
   <div class="item">
-    <div class="row"><span class="role">Skylure Jet <span class="muted">(Freelance Client Project)</span></span><span class="date"><a href="https://skylurejet.com">skylurejet.com</a></span></div>
+    <div class="row"><span><strong>Skylure Jet</strong> | Freelance Client Project</span></div>
+    <p>Live: skylurejet.com</p>
     <ul>
-      <li>Built solo a private aircraft acquisition &amp; sales advisory site with Buy / Sell inquiry forms and an admin CRM to manage inquiries and send price quotes.</li>
+      <li>Built solo a private aircraft acquisition and sales advisory website with Buy / Sell inquiry forms and an admin CRM to manage inquiries and send price quotes.</li>
     </ul>
   </div>
   <div class="item">
-    <div class="row"><span class="role">GlowBot: AI Skin Analysis App <span class="muted">(Final Year Project)</span></span></div>
+    <div class="row"><span><strong>GlowBot: AI Skin Analysis App</strong> | Final Year Project</span></div>
     <ul>
-      <li>Detects acne, dark circles and pigmentation from a skin photo, then suggests treatments (e.g. Vitamin C), a diet plan and nearby dermatologists with in-app booking.</li>
+      <li>Detects acne, dark circles and pigmentation from a skin photo, then suggests treatments, a diet plan and nearby dermatologists with in-app appointment booking.</li>
     </ul>
   </div>
 
-  <h2>Skills</h2>
-  <div class="skills">
-    <b>Frontend</b><span>React 19, TypeScript, JavaScript (ES6+), Tailwind CSS, React Router, TanStack Query, i18next, HTML5, CSS3</span>
-    <b>Backend</b><span>Node.js, Express, REST APIs, MongoDB, Mongoose, Zod, JWT, Google OAuth, Nodemailer, Multer</span>
-    <b>Testing & Security</b><span>Jest, Supertest, Playwright, Helmet, rate limiting, bcrypt</span>
-    <b>Tools</b><span>Git, GitHub, Vercel, Vite, Postman, VS Code, Claude Code, SAP ERP (MM, FI)</span>
-    <b>Languages</b><span>English, Urdu</span>
+  <h2>Technical Skills</h2>
+  <p><strong>Frontend:</strong> React, TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, React Router, TanStack Query, i18next</p>
+  <p><strong>Backend:</strong> Node.js, Express, REST APIs, MongoDB, Mongoose, Zod, JWT, Google OAuth, Nodemailer, Multer</p>
+  <p><strong>Testing &amp; Security:</strong> Jest, Supertest, Playwright, Helmet, Rate Limiting, bcrypt</p>
+  <p><strong>Tools:</strong> Git, GitHub, Vercel, Vite, Postman, VS Code, Claude Code, SAP ERP (MM, FI)</p>
+
+  <h2>Education</h2>
+  <div class="item">
+    <div class="row"><strong>Bachelor of Science in Computer Science</strong><span class="right">Lahore, Pakistan</span></div>
+    <p class="sub">University of Central Punjab (UCP) | CGPA: 3.29</p>
   </div>
 
-  <h2>Education &amp; Certifications</h2>
-  <div class="item">
-    <div class="row"><span class="role">BS Computer Science · <span class="org">University of Central Punjab (UCP)</span></span><span class="date">Lahore</span></div>
-    <div class="muted">CGPA 3.29 · Final Year Project: GlowBot</div>
-  </div>
-  <div class="row"><span><b>Introduction to Generative AI</b> · Coursera</span><a class="date" href="https://www.coursera.org/account/accomplishments/verify/H6LBWZ58OGG2">Verify</a></div>
+  <h2>Certifications</h2>
+  <p>Introduction to Generative AI | Coursera | coursera.org/account/accomplishments/verify/H6LBWZ58OGG2</p>
+
+  <h2>Languages</h2>
+  <p>English, Urdu</p>
 </body>
 </html>

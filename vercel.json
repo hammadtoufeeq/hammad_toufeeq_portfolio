@@ -1,3 +1,9 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "headers": [
+    {
+      "source": "/Hammad-Toufeeq-Resume.pdf",
+      "headers": [{ "key": "Content-Disposition", "value": "inline; filename=\"Hammad-Toufeeq-Resume.pdf\"" }]
+    }
+  ]
 }

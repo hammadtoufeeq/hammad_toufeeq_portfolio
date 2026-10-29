@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { profile } from '../data'
 import CodeCard from './CodeCard'
 import Magnetic from './Magnetic'
-import { ArrowIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, PinIcon } from './Icons'
+import { ArrowIcon, GitHubIcon, LinkedInIcon, MailIcon, PinIcon } from './Icons'
 
 const floatingChips = [
   { label: 'React', className: '-left-12 -top-6', color: 'from-cyan-400 to-blue-500', d: 0 },
@@ -107,10 +107,11 @@ export default function Hero() {
             <Magnetic>
               <a
                 href={profile.resume}
-                download
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-4 font-semibold text-white backdrop-blur transition hover:border-white/40 hover:bg-white/10"
               >
-                <DownloadIcon /> Download CV
+                Resume <ArrowIcon className="h-4 w-4" />
               </a>
             </Magnetic>
           </motion.div>

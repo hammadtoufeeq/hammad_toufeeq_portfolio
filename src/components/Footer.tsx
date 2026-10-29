@@ -77,8 +77,8 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href={profile.resume} download className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-semibold text-ink transition hover:bg-fuchsia-100">
-                Download resume
+              <a href={profile.resume} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-semibold text-ink transition hover:bg-fuchsia-100">
+                Resume
               </a>
             </li>
           </ul>
