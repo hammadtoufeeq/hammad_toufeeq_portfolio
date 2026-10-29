@@ -67,19 +67,28 @@ export default function Skills() {
         </div>
       </Section>
 
-      <div className="overflow-hidden py-6">
-      <div className="relative -mx-4 -rotate-2 border-y border-white/10 bg-gradient-to-r from-violet-600/20 via-fuchsia-600/20 to-cyan-500/20 py-5">
-        <div className="flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
-          <div className="animate-marquee flex shrink-0 gap-10 pr-10">
-            {[...marquee, ...marquee].map((m, i) => (
-              <span key={i} className="flex items-center gap-10 whitespace-nowrap font-display text-2xl font-semibold text-white/80 md:text-3xl">
-                {m}
-                <span className="text-fuchsia-400">✦</span>
-              </span>
+      <div className="relative space-y-4 py-4 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
+        {marquee.map((row, r) => (
+          <div key={r} className="group flex overflow-hidden">
+            {[0, 1].map((copy) => (
+              <ul
+                key={copy}
+                aria-hidden={copy === 1}
+                className={`flex shrink-0 gap-3 pr-3 group-hover:[animation-play-state:paused] ${r % 2 ? 'animate-marquee-rev' : 'animate-marquee'}`}
+              >
+                {row.map((t) => (
+                  <li
+                    key={t.name}
+                    className="flex items-center gap-2.5 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white/80 sm:text-base"
+                  >
+                    <span className="h-2 w-2 rounded-full" style={{ backgroundColor: t.color, boxShadow: `0 0 10px ${t.color}80` }} />
+                    {t.name}
+                  </li>
+                ))}
+              </ul>
             ))}
           </div>
-        </div>
-      </div>
+        ))}
       </div>
     </div>
   )

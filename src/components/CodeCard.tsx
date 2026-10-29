@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'motion/react'
 
 type Token = [text: string, className?: string]
 
@@ -24,8 +25,12 @@ const total = lines.reduce((sum, l) => sum + l.reduce((a, [t]) => a + t.length, 
 
 export default function CodeCard() {
   const [shown, setShown] = useState(0)
+  const ref = useRef<HTMLDivElement>(null)
+  // Start typing only once the card is actually on screen, and only the first time
+  const inView = useInView(ref, { once: true, amount: 0.5 })
 
   useEffect(() => {
+    if (!inView) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return setShown(total)
     let tick = 0
     const start = setTimeout(() => {
@@ -34,17 +39,17 @@ export default function CodeCard() {
           if (v + 2 >= total) clearInterval(tick)
           return Math.min(total, v + 2)
         })
-      }, 22)
-    }, 900)
+      }, 30)
+    }, 250)
     return () => {
       clearTimeout(start)
       clearInterval(tick)
     }
-  }, [])
+  }, [inView])
 
   let left = shown
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0c0a18]/95 shadow-2xl shadow-black/50">
+    <div ref={ref} className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0c0a18]/95 shadow-2xl shadow-black/50">
       <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.03] px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-red-400/80" />
         <span className="h-3 w-3 rounded-full bg-amber-400/80" />

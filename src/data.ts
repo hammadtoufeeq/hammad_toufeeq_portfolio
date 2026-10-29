@@ -52,9 +52,29 @@ export const skillGroups = [
   },
 ]
 
-export const marquee = [
-  'React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'Tailwind CSS',
-  'TanStack Query', 'Zod', 'JWT', 'Jest', 'Playwright', 'Vercel', 'Git', 'i18next', 'Vite',
+// Tech strip under Skills: two rows scrolling in opposite directions, dot = brand colour
+export const marquee: { name: string; color: string }[][] = [
+  [
+    { name: 'React', color: '#61dafb' },
+    { name: 'TypeScript', color: '#3178c6' },
+    { name: 'Node.js', color: '#5fa04e' },
+    { name: 'Express', color: '#ffffff' },
+    { name: 'MongoDB', color: '#47a248' },
+    { name: 'Mongoose', color: '#c4302b' },
+    { name: 'Tailwind CSS', color: '#38bdf8' },
+    { name: 'TanStack Query', color: '#ff4154' },
+  ],
+  [
+    { name: 'Zod', color: '#3e67b1' },
+    { name: 'JWT', color: '#d63aff' },
+    { name: 'Jest', color: '#c21325' },
+    { name: 'Playwright', color: '#2ead33' },
+    { name: 'Vercel', color: '#ffffff' },
+    { name: 'Git', color: '#f05032' },
+    { name: 'i18next', color: '#26a69a' },
+    { name: 'Vite', color: '#a855f7' },
+    { name: 'SAP ERP', color: '#0faaff' },
+  ],
 ]
 
 export const experience = [
