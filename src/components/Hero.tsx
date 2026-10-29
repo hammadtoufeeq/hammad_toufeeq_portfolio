@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 import { profile } from '../data'
 import Magnetic from './Magnetic'
-import { ArrowIcon, GitHubIcon, LinkedInIcon, MailIcon, PinIcon } from './Icons'
+import { ArrowIcon, brand, GitHubIcon, LinkedInIcon, MailIcon, PinIcon, WhatsAppIcon } from './Icons'
 
 const ease = [0.22, 1, 0.36, 1] as const
 const up = (delay: number) => ({
@@ -94,9 +94,10 @@ export default function Hero() {
           <motion.div {...up(0.8)} className="mt-10 flex flex-wrap items-center gap-3 text-white/60">
             <span className="h-px w-10 bg-gradient-to-r from-fuchsia-500 to-cyan-400" />
             {[
-              { href: profile.github, icon: <GitHubIcon />, label: 'GitHub' },
-              { href: profile.linkedin, icon: <LinkedInIcon />, label: 'LinkedIn' },
-              { href: `mailto:${profile.email}`, icon: <MailIcon />, label: 'Email' },
+              { href: profile.github, icon: <GitHubIcon />, label: 'GitHub', color: brand.github },
+              { href: profile.linkedin, icon: <LinkedInIcon />, label: 'LinkedIn', color: brand.linkedin },
+              { href: `mailto:${profile.email}`, icon: <MailIcon />, label: 'Email', color: brand.email },
+              { href: profile.whatsapp, icon: <WhatsAppIcon />, label: 'WhatsApp', color: brand.whatsapp },
             ].map((s) => (
               <a
                 key={s.label}
@@ -104,7 +105,8 @@ export default function Hero() {
                 target={s.href.startsWith('http') ? '_blank' : undefined}
                 rel="noreferrer"
                 aria-label={s.label}
-                className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:border-fuchsia-400/60 hover:text-white"
+                style={{ backgroundColor: s.color }}
+                className="grid h-11 w-11 place-items-center rounded-full text-white shadow-lg shadow-black/30 ring-1 ring-white/15 transition hover:-translate-y-1 hover:brightness-110"
               >
                 {s.icon}
               </a>

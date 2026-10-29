@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { profile } from '../data'
-import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from './Icons'
+import { brand, GitHubIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from './Icons'
 import { Reveal, Section } from './Section'
 
 // Web3Forms (https://web3forms.com) emails submissions to the inbox. Set VITE_WEB3FORMS_KEY in .env / Vercel.
@@ -77,10 +77,10 @@ export default function Contact() {
   }
 
   const channels = [
-    { icon: <MailIcon />, label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-    { icon: <PhoneIcon />, label: 'Phone / WhatsApp', value: profile.phone, href: profile.whatsapp },
-    { icon: <LinkedInIcon />, label: 'LinkedIn', value: 'in/hammad-toufeeq', href: profile.linkedin },
-    { icon: <GitHubIcon />, label: 'GitHub', value: 'hammadtoufeeq', href: profile.github },
+    { icon: <MailIcon />, label: 'Email', value: profile.email, href: `mailto:${profile.email}`, color: brand.email },
+    { icon: <WhatsAppIcon />, label: 'Phone / WhatsApp', value: profile.phone, href: profile.whatsapp, color: brand.whatsapp },
+    { icon: <LinkedInIcon />, label: 'LinkedIn', value: 'in/hammad-toufeeq', href: profile.linkedin, color: brand.linkedin },
+    { icon: <GitHubIcon />, label: 'GitHub', value: 'hammadtoufeeq', href: profile.github, color: brand.github },
   ]
 
   const input =
@@ -123,7 +123,10 @@ export default function Contact() {
                     rel="noreferrer"
                     className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:-translate-y-1 hover:border-white/30"
                   >
-                    <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white transition group-hover:bg-gradient-to-br group-hover:from-fuchsia-500 group-hover:to-cyan-500">
+                    <span
+                      style={{ backgroundColor: c.color }}
+                      className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-white ring-1 ring-white/15 transition group-hover:scale-105"
+                    >
                       {c.icon}
                     </span>
                     <span className="min-w-0 flex-1">

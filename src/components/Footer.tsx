@@ -1,5 +1,5 @@
 import { profile } from '../data'
-import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from './Icons'
+import { brand, GitHubIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from './Icons'
 
 const nav = [
   { id: 'about', label: 'About' },
@@ -12,9 +12,10 @@ const nav = [
 ]
 
 const socials = [
-  { href: profile.github, label: 'GitHub', icon: <GitHubIcon className="h-4 w-4" /> },
-  { href: profile.linkedin, label: 'LinkedIn', icon: <LinkedInIcon className="h-4 w-4" /> },
-  { href: `mailto:${profile.email}`, label: 'Email', icon: <MailIcon className="h-4 w-4" /> },
+  { href: profile.github, label: 'GitHub', icon: <GitHubIcon className="h-4 w-4" />, color: brand.github },
+  { href: profile.linkedin, label: 'LinkedIn', icon: <LinkedInIcon className="h-4 w-4" />, color: brand.linkedin },
+  { href: `mailto:${profile.email}`, label: 'Email', icon: <MailIcon className="h-4 w-4" />, color: brand.email },
+  { href: profile.whatsapp, label: 'WhatsApp', icon: <WhatsAppIcon className="h-4 w-4" />, color: brand.whatsapp },
 ]
 
 export default function Footer() {
@@ -43,7 +44,8 @@ export default function Footer() {
                 target={s.href.startsWith('http') ? '_blank' : undefined}
                 rel="noreferrer"
                 aria-label={s.label}
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white/60 transition hover:-translate-y-0.5 hover:border-fuchsia-400/60 hover:text-white"
+                style={{ backgroundColor: s.color }}
+                className="grid h-10 w-10 place-items-center rounded-full text-white ring-1 ring-white/15 transition hover:-translate-y-0.5 hover:brightness-110"
               >
                 {s.icon}
               </a>
@@ -69,12 +71,12 @@ export default function Footer() {
           <ul className="mt-5 space-y-3 text-sm">
             <li>
               <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2.5 text-white/65 transition hover:text-white">
-                <MailIcon className="h-4 w-4 shrink-0" /> {profile.email}
+                <MailIcon className="h-4 w-4 shrink-0 text-[#EA4335]" /> {profile.email}
               </a>
             </li>
             <li>
-              <a href={profile.phoneHref} className="inline-flex items-center gap-2.5 text-white/65 transition hover:text-white">
-                <PhoneIcon className="h-4 w-4 shrink-0" /> {profile.phone}
+              <a href={profile.whatsapp} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 text-white/65 transition hover:text-white">
+                <WhatsAppIcon className="h-4 w-4 shrink-0 text-[#25D366]" /> {profile.phone}
               </a>
             </li>
             <li>
