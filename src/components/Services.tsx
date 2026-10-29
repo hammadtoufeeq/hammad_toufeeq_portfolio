@@ -7,7 +7,6 @@ export default function Services() {
   return (
     <Section id="services">
       <Reveal className="mx-auto mb-14 max-w-2xl text-center">
-        <span className="mx-auto mb-5 block h-12 w-px bg-[repeating-linear-gradient(to_bottom,#e879f9_0_6px,transparent_6px_12px)]" />
         <h2 className="font-display text-4xl font-bold text-white sm:text-5xl">
           My <span className="text-gradient">Services</span>
         </h2>

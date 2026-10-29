@@ -11,6 +11,8 @@ const TIMEOUT_MS = 15000
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
+const topics = ['Full-time role', 'Freelance project', 'Internship', 'Collaboration', 'Just saying hi']
+
 export default function Contact() {
   const [status, setStatus] = useState<Status>('idle')
   const [copied, setCopied] = useState(false)
@@ -25,6 +27,15 @@ export default function Contact() {
       return setStatus('error')
     }
 
+    const topic = String(data.get('topic') ?? '')
+    const optional = Object.fromEntries(
+      [
+        ['topic', topic],
+        ['company', String(data.get('company') ?? '').trim()],
+        ['phone', String(data.get('phone') ?? '').trim()],
+      ].filter(([, v]) => v),
+    )
+
     setStatus('sending')
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), TIMEOUT_MS)
@@ -34,10 +45,12 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `Portfolio message from ${data.get('name')}`,
+          subject: `Portfolio message from ${data.get('name')}${topic ? ` · ${topic}` : ''}`,
           from_name: 'Hammad Toufeeq Portfolio',
           name: data.get('name'),
           email: data.get('email'),
+          // Optional fields are only sent when filled in
+          ...optional,
           message: data.get('message'),
         }),
         signal: controller.signal,
@@ -125,13 +138,42 @@ export default function Contact() {
             <form onSubmit={onSubmit} className="glass rounded-3xl p-6 sm:p-8">
               <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
               <div className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="mb-2 block text-sm font-medium text-white/70">Your name</label>
-                  <input id="name" name="name" required autoComplete="name" placeholder="Jane from Acme" className={input} />
-                </div>
-                <div>
-                  <label htmlFor="email" className="mb-2 block text-sm font-medium text-white/70">Your email</label>
-                  <input id="email" name="email" type="email" required autoComplete="email" placeholder="jane@company.com" className={input} />
+                <fieldset>
+                  <legend className="mb-2 block text-sm font-medium text-white/70">
+                    What's this about? <span className="text-white/35">(optional)</span>
+                  </legend>
+                  <div className="flex flex-wrap gap-2">
+                    {topics.map((t) => (
+                      <label key={t} className="cursor-pointer">
+                        <input type="radio" name="topic" value={t} className="peer sr-only" />
+                        <span className="block rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-xs font-medium text-white/65 transition peer-checked:border-white peer-checked:bg-white peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-fuchsia-400 hover:text-white sm:text-sm">
+                          {t}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-white/70">Your name</label>
+                    <input id="name" name="name" required autoComplete="name" placeholder="Jane Smith" className={input} />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-white/70">Your email</label>
+                    <input id="email" name="email" type="email" required autoComplete="email" placeholder="jane@company.com" className={input} />
+                  </div>
+                  <div>
+                    <label htmlFor="company" className="mb-2 block text-sm font-medium text-white/70">
+                      Company <span className="text-white/35">(optional)</span>
+                    </label>
+                    <input id="company" name="company" autoComplete="organization" placeholder="Acme Inc." className={input} />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="mb-2 block text-sm font-medium text-white/70">
+                      Phone / WhatsApp <span className="text-white/35">(optional)</span>
+                    </label>
+                    <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+92 300 0000000" className={input} />
+                  </div>
                 </div>
                 <div>
                   <label htmlFor="message" className="mb-2 block text-sm font-medium text-white/70">Message</label>

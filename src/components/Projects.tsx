@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { glowbot, influence, skylure } from '../data'
 import AgreementDemo from './AgreementDemo'
@@ -295,6 +295,16 @@ function NavButton({ dir, onClick }: { dir: 'prev' | 'next'; onClick: () => void
 export default function Projects() {
   const [[index, direction], setState] = useState<[number, number]>([0, 0])
   const sliderRef = useRef<HTMLDivElement>(null)
+
+  // Other sections can open a specific project, e.g. Education's "View project" for GlowBot
+  useEffect(() => {
+    const onShow = (e: Event) => {
+      const i = slides.findIndex((s) => s.name === (e as CustomEvent<string>).detail)
+      if (i >= 0) setState(([cur]) => [i, i >= cur ? 1 : -1])
+    }
+    window.addEventListener('show-project', onShow)
+    return () => window.removeEventListener('show-project', onShow)
+  }, [])
 
   const go = (to: number) => {
     const next = (to + slides.length) % slides.length
