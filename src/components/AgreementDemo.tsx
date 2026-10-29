@@ -44,8 +44,9 @@ function Party({ who, name, avatar, state }: { who: string; name: string; avatar
         <span className={`grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br text-sm font-bold text-white ${avatar}`}>{name[0]}</span>
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-semibold text-white">{name}</p>
-          <p className="text-[11px] text-white/45">{who}</p>
+          <p className="truncate text-[11px] text-white/45">{who}</p>
         </div>
+        <span className="flex h-6 w-14 shrink-0 items-center justify-end">
         <AnimatePresence mode="wait">
           {state === 'signed' ? (
             <motion.span
@@ -62,6 +63,7 @@ function Party({ who, name, avatar, state }: { who: string; name: string; avatar
             </motion.span>
           )}
         </AnimatePresence>
+        </span>
       </div>
       <div className="mt-3 flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5">
         <span className="text-[11px] leading-tight text-white/40">Email code</span>
@@ -93,7 +95,7 @@ export default function AgreementDemo() {
         </div>
 
         <div className="space-y-4 p-4 sm:p-5">
-          <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="flex flex-col items-start gap-2 sm:flex-row sm:justify-between sm:gap-3">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-widest text-white/40">Agreement</p>
               <p className="font-display text-base font-semibold text-white sm:text-lg">Ramadan Brand Campaign</p>
@@ -102,7 +104,7 @@ export default function AgreementDemo() {
               key={step}
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-3 py-1 text-xs font-semibold ${
                 step === 'signed' ? 'bg-emerald-500/20 text-emerald-300 ring-1 ring-emerald-400/40' : 'bg-amber-500/15 text-amber-300 ring-1 ring-amber-400/30'
               }`}
             >

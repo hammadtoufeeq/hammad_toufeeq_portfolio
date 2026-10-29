@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
+import { motion } from 'motion/react'
 
 // Illustrative recreation of the Skylure Jet admin CRM receiving inquiries (sample data).
 const inquiries = [
@@ -45,29 +45,26 @@ export default function SkylureDemo() {
             </div>
           </div>
 
+          {/* All rows stay in the layout (only fading in and out) so the card never changes height. */}
           <div className="space-y-2">
-            <AnimatePresence initial={false}>
-              {inquiries.slice(0, count).map((q) => (
-                <motion.div
-                  key={q.name}
-                  layout
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-2.5"
-                >
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#e3c891] to-[#8a6d3b] text-xs font-bold text-black">{q.name[0]}</span>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-semibold text-white">
-                      {q.name} <span className="ml-1 text-[11px] font-medium text-[#c9a96e]">{q.type}</span>
-                    </p>
-                    <p className="truncate text-[11px] text-white/45">{q.detail}</p>
-                  </div>
-                  <span className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold ring-1 ${statusStyle[q.status]}`}>{q.status}</span>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+            {inquiries.map((q, i) => (
+              <motion.div
+                key={q.name}
+                initial={false}
+                animate={i < count ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+                transition={{ duration: 0.4 }}
+                className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-2.5"
+              >
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#e3c891] to-[#8a6d3b] text-xs font-bold text-black">{q.name[0]}</span>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold text-white">
+                    {q.name} <span className="ml-1 text-[11px] font-medium text-[#c9a96e]">{q.type}</span>
+                  </p>
+                  <p className="truncate text-[11px] text-white/45">{q.detail}</p>
+                </div>
+                <span className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold ring-1 ${statusStyle[q.status]}`}>{q.status}</span>
+              </motion.div>
+            ))}
           </div>
 
           <div className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#c9a96e]/20 bg-[#c9a96e]/[0.06] px-3 py-2.5 text-xs">
