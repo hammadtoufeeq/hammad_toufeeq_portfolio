@@ -95,10 +95,10 @@ body {
   }
 }
 .animate-marquee {
-  animation: marquee-full 38s linear infinite;
+  animation: marquee-full 90s linear infinite;
 }
 .animate-marquee-rev {
-  animation: marquee-full 38s linear infinite reverse;
+  animation: marquee-full 90s linear infinite reverse;
 }
 
 /* Each copy of the list slides its own full width, so two copies loop seamlessly */

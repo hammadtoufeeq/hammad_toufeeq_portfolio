@@ -69,16 +69,18 @@ export default function Skills() {
 
       <div className="relative space-y-4 py-4 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
         {marquee.map((row, r) => (
-          <div key={r} className="group flex overflow-hidden">
+          <div key={r} className="flex overflow-hidden">
+            {/* Two identical copies slide by exactly one copy's width, so the loop point is invisible.
+                Each copy repeats the row so it is wider than any screen and the row never shows a gap. */}
             {[0, 1].map((copy) => (
               <ul
                 key={copy}
                 aria-hidden={copy === 1}
-                className={`flex shrink-0 gap-3 pr-3 group-hover:[animation-play-state:paused] ${r % 2 ? 'animate-marquee-rev' : 'animate-marquee'}`}
+                className={`flex shrink-0 gap-3 pr-3 ${r % 2 ? 'animate-marquee-rev' : 'animate-marquee'}`}
               >
-                {row.map((t) => (
+                {[...row, ...row, ...row].map((t, i) => (
                   <li
-                    key={t.name}
+                    key={`${t.name}-${i}`}
                     className="flex items-center gap-2.5 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white/80 sm:text-base"
                   >
                     <span className="h-2 w-2 rounded-full" style={{ backgroundColor: t.color, boxShadow: `0 0 10px ${t.color}80` }} />
