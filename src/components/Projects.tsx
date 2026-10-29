@@ -233,7 +233,7 @@ function GlowBotSlide() {
             animate={{ rotate: -360 }}
             transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
           />
-          <div className="relative grid h-40 w-40 place-items-center overflow-hidden rounded-full bg-gradient-to-br from-pink-500 via-rose-400 to-amber-300 text-7xl shadow-2xl shadow-pink-500/30">
+          <div className="relative grid h-32 w-32 place-items-center overflow-hidden rounded-full bg-gradient-to-br from-pink-500 via-rose-400 to-amber-300 text-6xl sm:h-40 sm:w-40 sm:text-7xl shadow-2xl shadow-pink-500/30">
             ✨
             <motion.div
               className="absolute inset-x-0 h-1 bg-white/90 shadow-[0_0_20px_6px_rgba(255,255,255,0.6)]"
@@ -275,9 +275,9 @@ function GlowBotSlide() {
 }
 
 const slides = [
-  { name: 'Influence Platform', Slide: InfluenceSlide },
-  { name: 'Skylure Jet', Slide: SkylureSlide },
-  { name: 'GlowBot', Slide: GlowBotSlide },
+  { name: 'Influence Platform', short: 'Influence', Slide: InfluenceSlide },
+  { name: 'Skylure Jet', short: 'Skylure Jet', Slide: SkylureSlide },
+  { name: 'GlowBot', short: 'GlowBot', Slide: GlowBotSlide },
 ]
 
 function NavButton({ dir, onClick }: { dir: 'prev' | 'next'; onClick: () => void }) {
@@ -316,28 +316,38 @@ export default function Projects() {
 
   const { Slide } = slides[index]
 
+  const counter = (
+    <span className="font-mono text-sm text-white/45">
+      {String(index + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+    </span>
+  )
+
+  // Phones: a full-width 3-way switcher (every project always visible) with arrows on the row below.
+  // sm and up: project pills on the left, counter and arrows on the right.
   const controls = (
-    <div className="flex items-center justify-between gap-4">
-      <div className="-my-1 flex min-w-0 gap-2 overflow-x-auto py-1 pr-6 [mask-image:linear-gradient(90deg,#000_80%,transparent)] [scrollbar-width:none] sm:pr-0 sm:[mask-image:none] [&::-webkit-scrollbar]:hidden">
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+      <div role="tablist" aria-label="Projects" className="grid grid-cols-3 gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 sm:flex sm:gap-2 sm:border-0 sm:bg-transparent sm:p-0">
         {slides.map((s, i) => (
           <button
             key={s.name}
+            role="tab"
             onClick={() => i !== index && go(i)}
-            aria-current={i === index}
-            className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition ${
-              i === index ? 'bg-white text-ink' : 'border border-white/10 bg-white/5 text-white/65 hover:text-white'
+            aria-selected={i === index}
+            className={`min-w-0 truncate whitespace-nowrap rounded-full px-2 py-2 text-xs font-medium transition min-[380px]:text-sm sm:px-4 ${
+              i === index ? 'bg-white text-ink' : 'text-white/65 hover:text-white sm:border sm:border-white/10 sm:bg-white/5'
             }`}
           >
-            {s.name}
+            <span className="sm:hidden">{s.short}</span>
+            <span className="hidden sm:inline">{s.name}</span>
           </button>
         ))}
       </div>
-      <div className="flex shrink-0 items-center gap-3">
-        <span className="hidden font-mono text-sm text-white/45 sm:inline">
-          {String(index + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-        </span>
-        <NavButton dir="prev" onClick={() => go(index - 1)} />
-        <NavButton dir="next" onClick={() => go(index + 1)} />
+      <div className="flex items-center justify-between gap-3 sm:justify-end">
+        {counter}
+        <div className="flex items-center gap-3">
+          <NavButton dir="prev" onClick={() => go(index - 1)} />
+          <NavButton dir="next" onClick={() => go(index + 1)} />
+        </div>
       </div>
     </div>
   )
