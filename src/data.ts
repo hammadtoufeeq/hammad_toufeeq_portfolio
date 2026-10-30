@@ -32,22 +32,22 @@ export const stats = [
 export const skillGroups = [
   {
     title: 'Frontend',
-    color: 'from-fuchsia-500 to-pink-500',
+    color: 'from-accent to-accent-deep',
     items: ['React 19', 'TypeScript', 'JavaScript (ES6+)', 'Tailwind CSS', 'React Router', 'TanStack Query', 'i18next', 'HTML5 / CSS3'],
   },
   {
     title: 'Backend',
-    color: 'from-violet-500 to-indigo-500',
+    color: 'from-accent to-accent-deep',
     items: ['Node.js', 'Express 5', 'REST API design', 'MongoDB', 'Mongoose', 'Zod validation', 'JWT + cookies', 'Google OAuth', 'Nodemailer', 'Multer'],
   },
   {
     title: 'Quality & Security',
-    color: 'from-cyan-500 to-blue-500',
+    color: 'from-accent to-accent-deep',
     items: ['Jest', 'Supertest', 'Playwright', 'Helmet', 'Rate limiting', 'bcrypt hashing', 'Input validation'],
   },
   {
     title: 'Tools & Delivery',
-    color: 'from-amber-400 to-orange-500',
+    color: 'from-accent to-accent-deep',
     items: ['Git & GitHub', 'Vercel', 'Vite', 'Postman', 'VS Code', 'Claude Code', 'Generative AI', 'SAP ERP (MM, FI)'],
   },
 ]
@@ -58,7 +58,7 @@ export const marquee: { name: string; color: string }[][] = [
     { name: 'React', color: '#61dafb' },
     { name: 'TypeScript', color: '#3178c6' },
     { name: 'Node.js', color: '#5fa04e' },
-    { name: 'Express', color: '#ffffff' },
+    { name: 'Express', color: '#1a1714' },
     { name: 'MongoDB', color: '#47a248' },
     { name: 'Mongoose', color: '#c4302b' },
     { name: 'Tailwind CSS', color: '#38bdf8' },
@@ -69,7 +69,7 @@ export const marquee: { name: string; color: string }[][] = [
     { name: 'JWT', color: '#d63aff' },
     { name: 'Jest', color: '#c21325' },
     { name: 'Playwright', color: '#2ead33' },
-    { name: 'Vercel', color: '#ffffff' },
+    { name: 'Vercel', color: '#1a1714' },
     { name: 'Git', color: '#f05032' },
     { name: 'i18next', color: '#26a69a' },
     { name: 'Vite', color: '#a855f7' },

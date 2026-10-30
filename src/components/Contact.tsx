@@ -84,34 +84,34 @@ export default function Contact() {
   ]
 
   const input =
-    'w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition focus:border-fuchsia-400/60 focus:bg-white/[0.07] focus:ring-4 focus:ring-fuchsia-500/10'
+    'w-full rounded-2xl border border-line-strong bg-surface px-4 py-3.5 text-ink placeholder:text-muted outline-none transition focus:border-accent focus:bg-surface focus:ring-4 focus:ring-accent/15'
 
   return (
     <Section id="contact">
       <Reveal>
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-violet-700/30 via-fuchsia-700/20 to-cyan-600/20 p-6 sm:p-10 md:p-14">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-line bg-surface p-6 sm:p-10 md:p-14">
           <motion.div
             aria-hidden
-            className="pointer-events-none absolute -left-20 -top-20 h-80 w-80 rounded-full bg-fuchsia-500/30 blur-3xl"
+            className="pointer-events-none absolute -left-20 -top-20 h-80 w-80 rounded-full bg-line/60 blur-3xl"
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 8, repeat: Infinity }}
           />
           <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-2 [&>*]:min-w-0">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-fuchsia-200">Let's talk</p>
-              <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Let's talk</p>
+              <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl md:text-6xl">
                 Got a role or a project? <span className="text-gradient">Let's build it.</span>
               </h2>
-              <p className="mt-5 max-w-md text-lg text-white/70">
+              <p className="mt-5 max-w-md text-lg text-muted">
                 I'm open to full-time MERN / full-stack roles, onsite in Lahore or remote. I usually reply within a day.
               </p>
 
               <button
                 onClick={copyEmail}
-                className="mt-8 inline-flex max-w-full items-center gap-3 rounded-full border border-white/20 bg-black/20 py-2 pl-4 pr-2 font-mono text-xs text-white transition hover:border-white/50 sm:pl-5 sm:text-sm"
+                className="mt-8 inline-flex max-w-full items-center gap-3 rounded-full border border-line-strong bg-canvas py-2 pl-4 pr-2 font-mono text-xs text-ink transition hover:border-accent sm:pl-5 sm:text-sm"
               >
                 <span className="truncate">{profile.email}</span>
-                <span className="shrink-0 rounded-full bg-white px-3 py-1.5 font-sans text-xs font-semibold text-ink">{copied ? 'Copied ✓' : 'Copy'}</span>
+                <span className="shrink-0 rounded-full bg-ink px-3 py-1.5 font-sans text-xs font-semibold text-canvas">{copied ? 'Copied ✓' : 'Copy'}</span>
               </button>
 
               <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 [&>*]:min-w-0">
@@ -121,17 +121,17 @@ export default function Contact() {
                     href={c.href}
                     target={c.href.startsWith('http') ? '_blank' : undefined}
                     rel="noreferrer"
-                    className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:-translate-y-1 hover:border-white/30"
+                    className="group flex items-center gap-3 rounded-2xl border border-line bg-canvas p-4 transition hover:-translate-y-1 hover:border-line-strong"
                   >
                     <span
                       style={{ backgroundColor: c.color }}
-                      className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-white ring-1 ring-white/15 transition group-hover:scale-105"
+                      className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-white ring-1 ring-line transition group-hover:scale-105"
                     >
                       {c.icon}
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block text-xs text-white/50">{c.label}</span>
-                      <span className="block truncate text-sm font-medium text-white">{c.value}</span>
+                      <span className="block text-xs text-muted">{c.label}</span>
+                      <span className="block truncate text-sm font-medium text-ink">{c.value}</span>
                     </span>
                   </a>
                 ))}
@@ -142,14 +142,14 @@ export default function Contact() {
               <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
               <div className="space-y-4">
                 <fieldset>
-                  <legend className="mb-2 block text-sm font-medium text-white/70">
-                    What's this about? <span className="text-white/35">(optional)</span>
+                  <legend className="mb-2 block text-sm font-medium text-muted">
+                    What's this about? <span className="text-muted">(optional)</span>
                   </legend>
                   <div className="flex flex-wrap gap-2">
                     {topics.map((t) => (
                       <label key={t} className="cursor-pointer">
                         <input type="radio" name="topic" value={t} className="peer sr-only" />
-                        <span className="block rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-xs font-medium text-white/65 transition peer-checked:border-white peer-checked:bg-white peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-fuchsia-400 hover:text-white sm:text-sm">
+                        <span className="block rounded-full border border-line bg-canvas px-3.5 py-2 text-xs font-medium text-muted transition peer-checked:border-ink peer-checked:bg-ink peer-checked:text-canvas peer-focus-visible:ring-2 peer-focus-visible:ring-accent hover:border-line-strong sm:text-sm">
                           {t}
                         </span>
                       </label>
@@ -158,28 +158,28 @@ export default function Contact() {
                 </fieldset>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-white/70">Your name</label>
+                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-muted">Your name</label>
                     <input id="name" name="name" required autoComplete="name" placeholder="Jane Smith" className={input} />
                   </div>
                   <div>
-                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-white/70">Your email</label>
+                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-muted">Your email</label>
                     <input id="email" name="email" type="email" required autoComplete="email" placeholder="jane@company.com" className={input} />
                   </div>
                   <div>
-                    <label htmlFor="company" className="mb-2 block text-sm font-medium text-white/70">
-                      Company <span className="text-white/35">(optional)</span>
+                    <label htmlFor="company" className="mb-2 block text-sm font-medium text-muted">
+                      Company <span className="text-muted">(optional)</span>
                     </label>
                     <input id="company" name="company" autoComplete="organization" placeholder="Acme Inc." className={input} />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="mb-2 block text-sm font-medium text-white/70">
-                      Phone / WhatsApp <span className="text-white/35">(optional)</span>
+                    <label htmlFor="phone" className="mb-2 block text-sm font-medium text-muted">
+                      Phone / WhatsApp <span className="text-muted">(optional)</span>
                     </label>
                     <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+92 300 0000000" className={input} />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-white/70">Message</label>
+                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-muted">Message</label>
                   <textarea id="message" name="message" required rows={5} placeholder="Tell me about the role or project…" className={`${input} resize-none`} />
                 </div>
               </div>
@@ -187,9 +187,9 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="group relative mt-6 w-full overflow-hidden rounded-2xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-pink-500 py-4 font-semibold text-white shadow-lg shadow-fuchsia-600/30 transition hover:shadow-fuchsia-500/50 disabled:opacity-60"
+                className="group relative mt-6 w-full overflow-hidden rounded-2xl bg-ink py-4 font-semibold text-canvas shadow-lg shadow-ink/10 transition hover:bg-accent disabled:opacity-60"
               >
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 {status === 'sending' ? 'Sending…' : 'Send message'}
               </button>
 
@@ -200,7 +200,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     role="status"
-                    className={`mt-4 text-center text-sm ${status === 'sent' ? 'text-emerald-300' : 'text-rose-300'}`}
+                    className={`mt-4 text-center text-sm ${status === 'sent' ? 'text-accent' : 'text-danger'}`}
                   >
                     {status === 'sent' ? "Thanks! Your message is on its way. I'll get back to you soon." : `Something went wrong. Please email me at ${profile.email}.`}
                   </motion.p>

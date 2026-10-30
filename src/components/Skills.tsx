@@ -15,7 +15,7 @@ function SpotlightCard({ children }: { children: React.ReactNode }) {
       }}
       className="glass group relative h-full overflow-hidden rounded-3xl p-7"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:radial-gradient(420px_circle_at_var(--x)_var(--y),rgba(236,72,153,0.14),transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:radial-gradient(420px_circle_at_var(--x)_var(--y),rgba(125,96,54,0.08),transparent_45%)]" />
       {children}
     </div>
   )
@@ -44,7 +44,7 @@ export default function Skills() {
               <SpotlightCard>
                 <div className="relative mb-6 flex items-center gap-3">
                   <span className={`h-10 w-1.5 rounded-full bg-gradient-to-b ${g.color}`} />
-                  <h3 className="font-display text-2xl font-semibold text-white">{g.title}</h3>
+                  <h3 className="font-display text-2xl font-semibold text-ink">{g.title}</h3>
                 </div>
                 <div className="relative flex flex-wrap gap-2.5">
                   {g.items.map((s, i) => (
@@ -55,7 +55,7 @@ export default function Skills() {
                       viewport={{ once: true }}
                       transition={{ delay: gi * 0.1 + i * 0.04, type: 'spring', stiffness: 260, damping: 18 }}
                       whileHover={{ y: -3, scale: 1.06 }}
-                      className="cursor-default rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-2 text-sm font-medium text-white/85 transition-colors hover:border-white/30 hover:bg-white/10"
+                      className="cursor-default rounded-xl border border-line bg-canvas px-3.5 py-2 text-sm font-medium text-ink transition-colors hover:border-line-strong hover:bg-tag"
                     >
                       {s}
                     </motion.span>
@@ -81,7 +81,7 @@ export default function Skills() {
                 {[...row, ...row, ...row].map((t, i) => (
                   <li
                     key={`${t.name}-${i}`}
-                    className="flex items-center gap-2.5 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white/80 sm:text-base"
+                    className="flex items-center gap-2.5 whitespace-nowrap rounded-full border border-line bg-canvas px-5 py-2.5 text-sm font-medium text-ink sm:text-base"
                   >
                     <span className="h-2 w-2 rounded-full" style={{ backgroundColor: t.color, boxShadow: `0 0 10px ${t.color}80` }} />
                     {t.name}
