@@ -45,14 +45,14 @@ export default function Navbar() {
     >
       <nav
         className={`mx-auto flex max-w-5xl items-center justify-between rounded-full px-3 py-2 transition-all duration-500 sm:px-4 ${
-          scrolled ? 'glass shadow-2xl shadow-ink/10' : 'border border-transparent'
+          scrolled ? 'glass shadow-2xl shadow-fuchsia-900/20' : 'border border-transparent'
         }`}
       >
         <a href="#top" className="flex items-center gap-2.5 pl-1" aria-label="Back to top">
-          <span className="relative grid h-9 w-9 place-items-center rounded-full bg-ink font-display text-sm font-bold text-canvas">
+          <span className="relative grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-violet-500 via-pink-500 to-cyan-400 font-display text-sm font-bold text-white">
             HT
           </span>
-          <span className="hidden font-display text-lg font-semibold text-ink sm:block">{profile.firstName}</span>
+          <span className="hidden font-display text-lg font-semibold text-white sm:block">{profile.firstName}</span>
         </a>
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -61,13 +61,13 @@ export default function Navbar() {
               <a
                 href={`#${l.id}`}
                 className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  active === l.id ? 'text-ink' : 'text-muted hover:text-ink'
+                  active === l.id ? 'text-white' : 'text-white/60 hover:text-white'
                 }`}
               >
                 {active === l.id && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-tag ring-1 ring-line"
+                    className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-fuchsia-500/30 to-cyan-500/30 ring-1 ring-white/15"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -82,20 +82,20 @@ export default function Navbar() {
             href={profile.resume}
             target="_blank"
             rel="noreferrer"
-            className="hidden rounded-full bg-ink px-5 py-2 text-sm font-semibold text-canvas transition hover:scale-105 hover:bg-accent sm:block"
+            className="hidden rounded-full bg-white px-5 py-2 text-sm font-semibold text-ink transition hover:scale-105 hover:bg-fuchsia-100 sm:block"
           >
             Resume
           </a>
           <button
             onClick={() => setOpen((o) => !o)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-line bg-canvas lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 lg:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
             <div className="relative h-3.5 w-5">
-              <span className={`absolute left-0 h-0.5 w-5 rounded bg-ink transition-all ${open ? 'top-1.5 rotate-45' : 'top-0'}`} />
-              <span className={`absolute left-0 top-1.5 h-0.5 w-5 rounded bg-ink transition-opacity ${open ? 'opacity-0' : ''}`} />
-              <span className={`absolute left-0 h-0.5 w-5 rounded bg-ink transition-all ${open ? 'top-1.5 -rotate-45' : 'top-3'}`} />
+              <span className={`absolute left-0 h-0.5 w-5 rounded bg-white transition-all ${open ? 'top-1.5 rotate-45' : 'top-0'}`} />
+              <span className={`absolute left-0 top-1.5 h-0.5 w-5 rounded bg-white transition-opacity ${open ? 'opacity-0' : ''}`} />
+              <span className={`absolute left-0 h-0.5 w-5 rounded bg-white transition-all ${open ? 'top-1.5 -rotate-45' : 'top-3'}`} />
             </div>
           </button>
         </div>
@@ -117,12 +117,12 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.04 }}
-                className={`block rounded-2xl px-4 py-3 text-base font-medium ${active === l.id ? 'bg-tag text-ink' : 'text-muted'}`}
+                className={`block rounded-2xl px-4 py-3 text-base font-medium ${active === l.id ? 'bg-white/10 text-white' : 'text-white/70'}`}
               >
                 {l.label}
               </motion.a>
             ))}
-            <a href={profile.resume} target="_blank" rel="noreferrer" className="mt-2 block rounded-2xl bg-ink px-4 py-3 text-center font-semibold text-canvas">
+            <a href={profile.resume} target="_blank" rel="noreferrer" className="mt-2 block rounded-2xl bg-white px-4 py-3 text-center font-semibold text-ink">
               Resume
             </a>
           </motion.div>

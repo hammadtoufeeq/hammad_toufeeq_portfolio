@@ -35,9 +35,9 @@ function Typewriter({ words }: { words: string[] }) {
   }, [text, deleting, i, words])
 
   return (
-    <span className="whitespace-nowrap text-accent">
+    <span className="whitespace-nowrap text-fuchsia-300">
       {text}
-      <span className="ml-0.5 inline-block w-[3px] translate-y-[0.1em] animate-pulse bg-accent" style={{ height: '0.95em' }} />
+      <span className="ml-0.5 inline-block w-[3px] translate-y-[0.1em] animate-pulse bg-fuchsia-400" style={{ height: '0.95em' }} />
     </span>
   )
 }
@@ -49,22 +49,22 @@ export default function Hero() {
         <div className="relative z-10">
           <motion.span
             {...up(0.2)}
-            className="relative inline-block rounded-md bg-tag px-4 py-1.5 text-sm font-semibold text-accent after:absolute after:-bottom-[7px] after:left-6 after:h-0 after:w-0 after:border-x-[7px] after:border-t-[8px] after:border-x-transparent after:border-t-tag"
+            className="relative inline-block rounded-md bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-1.5 text-sm font-semibold text-white after:absolute after:-bottom-[7px] after:left-6 after:h-0 after:w-0 after:border-x-[7px] after:border-t-[8px] after:border-x-transparent after:border-t-violet-600"
           >
             Hello, I am
           </motion.span>
 
-          <motion.h1 {...up(0.35)} className="mt-7 font-display text-5xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl xl:text-7xl">
+          <motion.h1 {...up(0.35)} className="mt-7 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
             <span className="text-gradient">Hammad</span> Toufeeq
           </motion.h1>
 
           {/* Fixed height (2 lines on phones, 1 above) so typing never moves the content below */}
-          <motion.p {...up(0.5)} className="mt-5 h-[3.75rem] font-display text-xl font-medium leading-snug text-ink sm:h-9 sm:text-2xl">
+          <motion.p {...up(0.5)} className="mt-5 h-[3.75rem] font-display text-xl font-medium leading-snug text-white/90 sm:h-9 sm:text-2xl">
             A Professional <br className="sm:hidden" />
             <Typewriter words={profile.roles} />
           </motion.p>
 
-          <motion.p {...up(0.6)} className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+          <motion.p {...up(0.6)} className="mt-5 max-w-xl text-lg leading-relaxed text-white/60">
             {profile.intro}
           </motion.p>
 
@@ -72,9 +72,9 @@ export default function Hero() {
             <Magnetic>
               <a
                 href="#projects"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-ink px-7 py-4 font-semibold text-canvas shadow-lg shadow-ink/10 transition hover:bg-accent"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-600 to-pink-500 px-7 py-4 font-semibold text-white shadow-lg shadow-fuchsia-600/30 transition hover:shadow-fuchsia-500/50"
               >
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 My Work
                 <ArrowIcon className="h-4 w-4 transition-transform group-hover:rotate-45" />
               </a>
@@ -84,15 +84,15 @@ export default function Hero() {
                 href={profile.resume}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-accent bg-transparent px-7 py-4 font-semibold text-accent backdrop-blur transition hover:bg-tag"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-4 font-semibold text-white backdrop-blur transition hover:border-white/50 hover:bg-white/10"
               >
                 Resume <ArrowIcon className="h-4 w-4" />
               </a>
             </Magnetic>
           </motion.div>
 
-          <motion.div {...up(0.8)} className="mt-10 flex flex-wrap items-center gap-3 text-muted">
-            <span className="h-px w-10 bg-accent" />
+          <motion.div {...up(0.8)} className="mt-10 flex flex-wrap items-center gap-3 text-white/60">
+            <span className="h-px w-10 bg-gradient-to-r from-fuchsia-500 to-cyan-400" />
             {[
               { href: profile.github, icon: <GitHubIcon />, label: 'GitHub', color: brand.github },
               { href: profile.linkedin, icon: <LinkedInIcon />, label: 'LinkedIn', color: brand.linkedin },
@@ -106,7 +106,7 @@ export default function Hero() {
                 rel="noreferrer"
                 aria-label={s.label}
                 style={{ backgroundColor: s.color }}
-                className="grid h-11 w-11 place-items-center rounded-full text-white shadow-lg shadow-ink/10 ring-1 ring-line transition hover:-translate-y-1 hover:brightness-110"
+                className="grid h-11 w-11 place-items-center rounded-full text-white shadow-lg shadow-black/30 ring-1 ring-white/15 transition hover:-translate-y-1 hover:brightness-110"
               >
                 {s.icon}
               </a>
@@ -124,8 +124,8 @@ export default function Hero() {
           transition={{ duration: 1.1, delay: 0.3, ease }}
           className="relative mx-auto aspect-square w-full max-w-[26rem]"
         >
-          <div className="absolute inset-[10%] rounded-full bg-line/70 blur-3xl" />
-          <div className="absolute inset-[8%] grid place-items-center overflow-hidden rounded-[2rem] border border-line bg-surface/70">
+          <div className="absolute inset-[10%] rounded-full bg-gradient-to-br from-fuchsia-600/40 via-violet-600/25 to-cyan-500/30 blur-3xl" />
+          <div className="absolute inset-[8%] grid place-items-center overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.06] to-transparent">
             <div className="grid-bg absolute inset-0 opacity-60" />
             <span className="text-outline relative select-none font-display text-[8rem] font-bold leading-none sm:text-[10rem]">HT</span>
           </div>
@@ -134,30 +134,30 @@ export default function Hero() {
           <svg viewBox="0 0 400 400" className="animate-spin-tri pointer-events-none absolute inset-0 h-full w-full" fill="none" aria-hidden>
             <defs>
               <linearGradient id="tri-a" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stopColor="var(--color-accent)" />
-                <stop offset="1" stopColor="var(--color-line-strong)" />
+                <stop offset="0" stopColor="#c084fc" />
+                <stop offset="1" stopColor="#22d3ee" />
               </linearGradient>
             </defs>
             <polygon points="40,70 370,40 220,300" stroke="url(#tri-a)" strokeOpacity="0.6" strokeWidth="1.2" />
           </svg>
           <svg viewBox="0 0 400 400" className="animate-spin-rev pointer-events-none absolute inset-0 h-full w-full" fill="none" aria-hidden>
-            <polygon points="90,380 330,250 60,170" stroke="var(--color-line-strong)" strokeWidth="1" />
+            <polygon points="90,380 330,250 60,170" stroke="rgba(244,114,182,0.45)" strokeWidth="1" />
           </svg>
 
-          <div className="animate-float absolute -right-1 bottom-[14%] rounded-2xl border border-line bg-surface px-4 py-3 shadow-xl backdrop-blur sm:-right-4">
-            <p className="font-display text-2xl font-bold text-ink">MERN</p>
-            <p className="text-xs text-muted">+ TypeScript</p>
+          <div className="animate-float absolute -right-1 bottom-[14%] rounded-2xl border border-white/15 bg-[#141126]/90 px-4 py-3 shadow-xl backdrop-blur sm:-right-4">
+            <p className="font-display text-2xl font-bold text-white">MERN</p>
+            <p className="text-xs text-white/55">+ TypeScript</p>
           </div>
-          <div className="animate-float absolute -left-1 top-[14%] rounded-2xl bg-tag px-4 py-3 shadow-xl shadow-ink/10 [animation-delay:1.5s] sm:-left-4">
-            <p className="text-xs font-medium text-ink">Open to</p>
-            <p className="text-sm font-semibold text-ink">New Roles</p>
+          <div className="animate-float absolute -left-1 top-[14%] rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-3 shadow-xl shadow-fuchsia-600/30 [animation-delay:1.5s] sm:-left-4">
+            <p className="text-xs font-medium text-white/85">Open to</p>
+            <p className="text-sm font-semibold text-white">New Roles</p>
           </div>
         </motion.div>
       </div>
 
       <a href="#about" aria-label="Scroll down" className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block">
-        <span className="flex h-11 w-7 justify-center rounded-full border-2 border-line-strong pt-2">
-          <span className="animate-scroll-dot block h-2.5 w-1 rounded-full bg-accent" />
+        <span className="flex h-11 w-7 justify-center rounded-full border-2 border-white/25 pt-2">
+          <span className="animate-scroll-dot block h-2.5 w-1 rounded-full bg-fuchsia-400" />
         </span>
       </a>
     </section>
