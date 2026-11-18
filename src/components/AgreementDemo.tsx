@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 
-// A looping, illustrative recreation of Influence Platform's two-party signing flow.
+// A looping, illustrative recreation of Influnexa's two-party signing flow.
 const steps = ['draft', 'business', 'talent', 'signed'] as const
 type Step = (typeof steps)[number]
 
@@ -91,7 +91,7 @@ export default function AgreementDemo() {
           <span className="h-3 w-3 rounded-full bg-red-400/80" />
           <span className="h-3 w-3 rounded-full bg-amber-400/80" />
           <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
-          <span className="ml-3 truncate rounded-md bg-white/5 px-3 py-1 font-mono text-[11px] text-white/45">influence-platform / agreements / AGR-1042</span>
+          <span className="ml-3 truncate rounded-md bg-white/5 px-3 py-1 font-mono text-[11px] text-white/45">influnexa.com / agreements / AGR-1042</span>
         </div>
 
         <div className="space-y-4 p-4 sm:p-5">

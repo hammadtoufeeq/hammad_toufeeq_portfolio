@@ -15,7 +15,7 @@ const lines: Token[][] = [
   [['  role', p], [': ', m], ["'MERN Stack Developer'", s], [',', m]],
   [['  location', p], [': ', m], ["'Lahore, PK'", s], [',', m]],
   [['  stack', p], [': ', m], ["'MERN + TypeScript'", s], [',', m]],
-  [['  shipped', p], [': ', m], ["'Influence Platform'", s], [',', m]],
+  [['  shipped', p], [': ', m], ["'Influnexa'", s], [',', m]],
   [['  remote', p], [': ', m], ['true', n], [',', m]],
   [['  hireable', p], [': ', m], ['true', n], [',', m]],
   [['}', m]],

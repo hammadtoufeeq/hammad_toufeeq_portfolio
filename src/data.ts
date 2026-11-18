@@ -15,7 +15,7 @@ export const profile = {
     'I build full-stack web apps end to end: typed React frontends, secure Express APIs and MongoDB data models, shipped to production on Vercel.',
   about: [
     "I'm a Computer Science graduate from the University of Central Punjab (UCP), Lahore, currently working as a MERN Stack Developer Intern at Axcel.",
-    'At Axcel I went from learning the stack to shipping a complete product: Influence Platform, a multi-role marketplace with role-based dashboards, campaigns, and digital agreements that both parties sign with a one-time email code.',
+    'At Axcel I went from learning the stack to shipping a complete product: Influnexa, a live multi-role marketplace with role-based dashboards, campaigns, and digital agreements that both parties sign with a one-time email code.',
     'I care about the parts users never see but always feel: validated inputs, secure auth, clean API contracts, fast loading and interfaces that work in every language and on every screen.',
   ],
   languages: ['English', 'Urdu'],
@@ -85,7 +85,7 @@ export const experience = [
     location: 'Lahore, Pakistan',
     current: true,
     points: [
-      'Built Influence Platform end to end: a production marketplace connecting businesses with creators, journalists, speakers and experts.',
+      'Built Influnexa (influnexa.com) end to end: a production marketplace connecting businesses with creators, journalists, speakers and experts.',
       'Designed a typed Express 5 + MongoDB REST API in MVC style with Zod validation, JWT cookie auth, Google sign-in, rate limiting and Helmet.',
       'Implemented role-based dashboards for 4 account types (Admin, Business, Manager, Talent) with verification and approval workflows.',
       'Shipped a digital agreement flow with milestones, signed by both business and talent using a one-time code sent by email.',
@@ -111,11 +111,11 @@ export const experience = [
 ]
 
 export const influence = {
-  name: 'Influence Platform',
+  name: 'Influnexa',
   tagline: 'Where businesses find, hire and work with talent.',
   description:
     'A full-stack marketplace that takes a deal from the first search to a signed agreement and a final review. Businesses discover creators, journalists, speakers and experts, post campaigns, and sign milestone-based agreements, all in one place.',
-  live: 'https://influencer-frontend-kappa.vercel.app',
+  live: 'https://influnexa.com',
   frontend: 'https://github.com/hammadtoufeeq/influencer_frontend',
   backend: 'https://github.com/hammadtoufeeq/influencer_backend',
   highlights: [

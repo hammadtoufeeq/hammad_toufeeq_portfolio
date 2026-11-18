@@ -27,7 +27,7 @@ function InfluenceSlide() {
               rel="noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-ink transition hover:scale-105"
             >
-              Visit live site <ArrowIcon className="h-4 w-4 transition-transform group-hover:rotate-45" />
+              Visit influnexa.com <ArrowIcon className="h-4 w-4 transition-transform group-hover:rotate-45" />
             </a>
             <a
               href={influence.frontend}
@@ -275,7 +275,7 @@ function GlowBotSlide() {
 }
 
 const slides = [
-  { name: 'Influence Platform', short: 'Influence', Slide: InfluenceSlide },
+  { name: 'Influnexa', short: 'Influnexa', Slide: InfluenceSlide },
   { name: 'Skylure Jet', short: 'Skylure Jet', Slide: SkylureSlide },
   { name: 'GlowBot', short: 'GlowBot', Slide: GlowBotSlide },
 ]
