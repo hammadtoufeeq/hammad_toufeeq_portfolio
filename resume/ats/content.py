@@ -71,5 +71,3 @@ EDUCATION = ("BS Computer Science | University of Central Punjab (UCP), Lahore, 
 
 CERTIFICATIONS = ["Introduction to Generative AI | Coursera | Credential ID: H6LBWZ58OGG2"]
 
-# Plain-text URLs at the bottom of the page, for ATS systems that ignore link annotations
-FOOTER = "linkedin.com/in/hammad-toufeeq | github.com/hammadtoufeeq | hammad-toufeeq-portfolio.vercel.app"

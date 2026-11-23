@@ -21,7 +21,7 @@ OUT = HERE.parent
 BASENAME = "Hammad_Toufeeq_Full_Stack_Developer"
 
 FONT = "Calibri"
-BODY_PT, HEAD_PT, NAME_PT, TITLE_PT, BUTTON_PT, FOOTER_PT = 10.5, 11.5, 20, 10, 9.5, 8.5
+BODY_PT, HEAD_PT, NAME_PT, TITLE_PT = 10.5, 11.5, 20, 10
 MARGIN_IN = 0.65          # left / right
 MARGIN_TB_IN = 0.55       # top / bottom (trimmed so everything fits on one page)
 # Widest title letter spacing that pdftotext still reads as whole words ("FULL STACK", not "F U L L").
@@ -31,7 +31,7 @@ TITLE_SPACING_PT = 0.9
 # ---------------------------------------------------------------- HTML / PDF
 def build_html() -> str:
     e = escape
-    buttons = "".join(f'<a class="btn" href="{e(url)}">{e(label)}</a>' for label, url in C.LINKS)
+    links = " | ".join(f'<a href="{e(url)}">{e(label)}</a>' for label, url in C.LINKS)
     skills = "\n".join(f"  <p><b>{e(k)}:</b> {e(v)}</p>" for k, v in C.SKILLS)
 
     def entry(title, right, bullets):
@@ -59,9 +59,6 @@ def build_html() -> str:
   h1 {{ font-size: {NAME_PT}pt; text-align: center; }}
   .title {{ text-align: center; font-weight: bold; font-size: {TITLE_PT}pt; letter-spacing: {TITLE_SPACING_PT}pt; margin-top: 2px; }}
   .contact {{ text-align: center; margin-top: 3px; }}
-  .buttons {{ display: flex; justify-content: center; gap: 8pt; margin-top: 5px; }}
-  .btn {{ font-size: {BUTTON_PT}pt; font-weight: bold; padding: 1pt 6pt; border: 1pt solid #000; border-radius: 4pt; background: #fff; }}
-  .header-rule {{ border: 0; border-top: 0.75pt solid #000; margin: 7px 0 0; }}
   h2 {{ font-size: {HEAD_PT}pt; margin: 8px 0 3px; padding-bottom: 1px; border-bottom: 0.75pt solid #000; }}
   .skills p {{ margin-bottom: 0.5px; }}
   .entry {{ margin-bottom: 4px; }}
@@ -69,7 +66,6 @@ def build_html() -> str:
   .right {{ white-space: nowrap; font-weight: bold; }}
   ul {{ list-style: disc; padding-left: 15px; margin-top: 1px; }}
   li {{ margin-bottom: 1px; }}
-  .footer {{ margin-top: auto; padding-top: 6px; text-align: center; font-size: {FOOTER_PT}pt; }}
 </style>
 </head>
 <body>
@@ -77,8 +73,7 @@ def build_html() -> str:
   <h1>{e(C.NAME)}</h1>
   <p class="title">{e(C.TITLE)}</p>
   <p class="contact">{e(C.CONTACT)}</p>
-  <div class="buttons">{buttons}</div>
-  <hr class="header-rule" />
+  <p class="contact">{links}</p>
 
   <h2>PROFESSIONAL SUMMARY</h2>
   <p>{e(C.SUMMARY)}</p>
@@ -99,8 +94,6 @@ def build_html() -> str:
 
   <h2>CERTIFICATIONS</h2>
 {certs}
-
-  <p class="footer">{e(C.FOOTER)}</p>
 </div>
 </body>
 </html>
@@ -214,13 +207,11 @@ def build_docx(path: Path):
     spacing.set(qn("w:val"), str(int(TITLE_SPACING_PT * 20)))
     r._r.get_or_add_rPr().append(spacing)
     para(C.CONTACT, align=WD_ALIGN_PARAGRAPH.CENTER)
-    p = para(align=WD_ALIGN_PARAGRAPH.CENTER, after=2)
-    p.paragraph_format.space_before = Pt(3)
+    p = para(align=WD_ALIGN_PARAGRAPH.CENTER)
     for i, (label, url) in enumerate(C.LINKS):
         if i:
-            p.add_run("    ")  # gap between buttons
-        add_hyperlink(p, url, f" {label} ", BUTTON_PT, bold=True, border=True)
-    bottom_rule(p)
+            p.add_run(" | ")
+        add_hyperlink(p, url, label, BODY_PT)
 
     heading("PROFESSIONAL SUMMARY")
     para(C.SUMMARY)
@@ -252,11 +243,6 @@ def build_docx(path: Path):
     for c in C.CERTIFICATIONS:
         para(c)
 
-    # Plain URLs in the page footer, so they always sit at the bottom
-    fp = sec.footer.paragraphs[0]
-    fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    fr = fp.add_run(C.FOOTER)
-    fr.font.size, fr.font.name, fr.font.color.rgb = Pt(FOOTER_PT), FONT, black
 
     doc.core_properties.title = "Hammad Toufeeq - Full Stack Developer Resume"
     doc.core_properties.author = "Hammad Toufeeq"
