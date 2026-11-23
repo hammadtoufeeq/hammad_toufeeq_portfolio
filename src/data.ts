@@ -115,7 +115,7 @@ export const influence = {
   tagline: 'Where businesses find, hire and work with talent.',
   description:
     'A full-stack marketplace that takes a deal from the first search to a signed agreement and a final review. Businesses discover creators, journalists, speakers and experts, post campaigns, and sign milestone-based agreements, all in one place.',
-  live: 'https://influnexa.com',
+  live: 'https://influnexa.com/',
   frontend: 'https://github.com/hammadtoufeeq/influencer_frontend',
   backend: 'https://github.com/hammadtoufeeq/influencer_backend',
   highlights: [
@@ -194,7 +194,7 @@ export const skylure = {
   tagline: 'Private aircraft acquisition & sales advisory.',
   description:
     'A premium website and lead-management system for a private aviation advisory that helps corporations and high-net-worth individuals buy and sell private aircraft. I designed and built it solo, from the public site to the admin CRM, and took it live for the client.',
-  live: 'https://skylurejet.com',
+  live: 'https://www.skylurejet.com/',
   highlights: [
     {
       icon: '✈️',
