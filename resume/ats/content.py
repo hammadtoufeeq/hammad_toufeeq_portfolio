@@ -1,13 +1,13 @@
 """Resume content. Edit text here, then run:  python3 build_resume.py  (from this folder)."""
 
-NAME = "HAMMAD TOUFEEQ"
-TITLE = "Full Stack Developer (React, Node.js, TypeScript)"
-CONTACT = "Lahore, Pakistan | +92 306 1694526 | hammadtoufeeq02@gmail.com"
+NAME = "Hammad Toufeeq"
+TITLE = "FULL STACK DEVELOPER"
+CONTACT = "Lahore, Pakistan | (+92) 306-1694526 | hammadtoufeeq02@gmail.com"
 EMAIL = "hammadtoufeeq02@gmail.com"
 LINKS = [
     ("LinkedIn", "https://www.linkedin.com/in/hammad-toufeeq/"),
     ("GitHub", "https://github.com/hammadtoufeeq"),
-    ("Portfolio", "https://hammadtoufeeqportfolio-7opr.vercel.app/"),
+    ("Portfolio", "https://hammad-toufeeq-portfolio.vercel.app/"),
 ]
 
 SUMMARY = (
@@ -68,3 +68,8 @@ PROJECTS = [
 ]
 
 EDUCATION = ("BS Computer Science | University of Central Punjab (UCP), Lahore, Pakistan", "CGPA: 3.29")
+
+CERTIFICATIONS = ["Introduction to Generative AI | Coursera | Credential ID: H6LBWZ58OGG2"]
+
+# Plain-text URLs at the bottom of the page, for ATS systems that ignore link annotations
+FOOTER = "linkedin.com/in/hammad-toufeeq | github.com/hammadtoufeeq | hammad-toufeeq-portfolio.vercel.app"
